@@ -122,7 +122,7 @@ const BookingForm = () => {
                 </SelectTrigger>
                 <SelectContent>
                   {services.map((s) => (
-                    <SelectItem key={s.id} value={s.id}>
+                    <SelectItem key={s.id} value={s._id}>
                       {s.name} · {s.duration} · {s.price}
                     </SelectItem>
                   ))}
