@@ -14,8 +14,14 @@ connectDB();
 const app = express();
 
 app.use(cors({
-  origin: "http://localhost:8080/",
+  origin: [
+    "http://localhost:8080",
+    "https://elegant1-we27.vercel.app"
+  ],
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  credentials: true
 }));
+
 
 // 6️⃣ Parse JSON body (AFTER CORS, BEFORE ROUTES)
 app.use(express.json());
