@@ -1,47 +1,52 @@
-// 1️⃣ Import packages
 import express from "express";
 import dotenv from "dotenv";
 import connectDB from "./config/db.js";
 import adminRoutes from "./routes/adminRoutes.js";
-import cors from "cors";   
-// 2️⃣ Load env variables
+import cors from "cors";
+
+// Load env variables
 dotenv.config();
 
-// 3️⃣ Connect database
+// Connect database
 connectDB();
 
-// 4️⃣ Create app
+// Create app
 const app = express();
 
+// CORS setup (allow frontend)
+// Simple CORS setup - no credentials needed
 app.use(cors({
   origin: [
     "http://localhost:8080",
     "https://elegant1-we27.vercel.app"
   ],
-  methods: ["GET", "POST", "PUT", "DELETE"],
-  credentials: true
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"]
 }));
 
+// Add this BEFORE your routes - handles preflight requests
+app.options('*', cors());
 
-// 6️⃣ Parse JSON body (AFTER CORS, BEFORE ROUTES)
+
+// Parse JSON body
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// 7️⃣ API routes
+// Routes
 app.use("/api", adminRoutes);
 
-// 8️⃣ Test route
+// Test route
 app.get("/", (req, res) => {
   res.json({ message: "Backend running 🚀" });
 });
 
-// 9️⃣ Error handler (optional but recommended)
+// Global error handler
 app.use((err, req, res, next) => {
   console.error(err.stack);
   res.status(500).json({ message: "Something went wrong!" });
 });
 
-// 🔟 Start server
+// Start server
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`✅ Backend running on http://localhost:${PORT}`);

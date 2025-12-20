@@ -3,7 +3,8 @@ import admincontroller from "../controllers/admincontroller.js";
 
 const router = express.Router();
 
-// POST booking
+// Public routes only
 router.post("/bookingcreate", admincontroller.createBooking);
+router.get("/getalluser", admincontroller.getUserAll);
 
 export default router;

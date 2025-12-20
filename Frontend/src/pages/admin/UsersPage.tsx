@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import axios from "axios";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -18,20 +19,31 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
-const users = [
-  { id: 1, name: "Sarah Johnson", email: "sarah@email.com", phone: "+1 234-567-8901", visits: 12, status: "Active" },
-  { id: 2, name: "Emily Davis", email: "emily@email.com", phone: "+1 234-567-8902", visits: 8, status: "Active" },
-  { id: 3, name: "Jessica Miller", email: "jessica@email.com", phone: "+1 234-567-8903", visits: 24, status: "VIP" },
-  { id: 4, name: "Amanda Brown", email: "amanda@email.com", phone: "+1 234-567-8904", visits: 3, status: "New" },
-  { id: 5, name: "Michelle Wilson", email: "michelle@email.com", phone: "+1 234-567-8905", visits: 15, status: "Active" },
-  { id: 6, name: "Rachel Taylor", email: "rachel@email.com", phone: "+1 234-567-8906", visits: 31, status: "VIP" },
-];
-
 const UsersPage = () => {
+  const [users, setUsers] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
 
+  // Fetch users from backend
+  useEffect(() => {
+    const fetchUsers = async () => {
+      try {
+        const response = await axios.get(
+          "http://localhost:5000/api/getalluser",
+        );
+        console.log(response); // your backend route
+        if (response.data.success) {
+          setUsers(response.data.data); // assuming your API returns { success, data: [...] }
+        }
+      } catch (error) {
+        console.error("Error fetching users:", error);
+      }
+    };
+
+    fetchUsers();
+  }, []);
+
   const filteredUsers = users.filter(
-    (user) =>
+    (user: any) =>
       user.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
       user.email.toLowerCase().includes(searchQuery.toLowerCase())
   );
@@ -53,10 +65,14 @@ const UsersPage = () => {
     <div className="space-y-6 animate-fade-in">
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
-          <h1 className="text-3xl font-display font-bold text-foreground">Users</h1>
-          <p className="text-muted-foreground mt-1">Manage your salon clients</p>
+          <h1 className="text-3xl font-display font-bold text-foreground">
+            Users
+          </h1>
+          <p className="text-muted-foreground mt-1">
+            Manage your salon clients
+          </p>
         </div>
-        <Button >
+        <Button>
           <Plus className="w-4 h-4 mr-2" />
           Add New User
         </Button>
@@ -86,8 +102,8 @@ const UsersPage = () => {
             </TableRow>
           </TableHeader>
           <TableBody>
-            {filteredUsers.map((user) => (
-              <TableRow key={user.id} className="hover:bg-secondary/30">
+            {filteredUsers.map((user: any) => (
+              <TableRow key={user._id} className="hover:bg-secondary/30">
                 <TableCell>
                   <div className="flex items-center gap-3">
                     <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
@@ -95,7 +111,9 @@ const UsersPage = () => {
                         {user.name.charAt(0)}
                       </span>
                     </div>
-                    <span className="font-medium text-foreground">{user.name}</span>
+                    <span className="font-medium text-foreground">
+                      {user.name}
+                    </span>
                   </div>
                 </TableCell>
                 <TableCell>
@@ -106,16 +124,22 @@ const UsersPage = () => {
                     </div>
                     <div className="flex items-center gap-2 text-sm text-muted-foreground">
                       <Phone className="w-3 h-3" />
-                      {user.phone}
+                      {user.phone || "-"} {/* fallback if phone missing */}
                     </div>
                   </div>
                 </TableCell>
                 <TableCell>
-                  <span className="font-medium text-foreground">{user.visits}</span>
+                  <span className="font-medium text-foreground">
+                    {user.visits || 0}
+                  </span>
                 </TableCell>
                 <TableCell>
-                  <span className={`text-xs px-3 py-1 rounded-full font-medium ${getStatusColor(user.status)}`}>
-                    {user.status}
+                  <span
+                    className={`text-xs px-3 py-1 rounded-full font-medium ${getStatusColor(
+                      user.status || "New"
+                    )}`}
+                  >
+                    {user.status || "New"}
                   </span>
                 </TableCell>
                 <TableCell className="text-right">
@@ -129,7 +153,9 @@ const UsersPage = () => {
                       <DropdownMenuItem>View Profile</DropdownMenuItem>
                       <DropdownMenuItem>Edit User</DropdownMenuItem>
                       <DropdownMenuItem>Booking History</DropdownMenuItem>
-                      <DropdownMenuItem className="text-destructive">Delete</DropdownMenuItem>
+                      <DropdownMenuItem className="text-destructive">
+                        Delete
+                      </DropdownMenuItem>
                     </DropdownMenuContent>
                   </DropdownMenu>
                 </TableCell>
