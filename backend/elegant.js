@@ -17,7 +17,7 @@ const app = express();
 // Simple CORS setup - no credentials needed
 app.use(cors({
   origin: [
-    "http://localhost:8080",
+    // "http://localhost:8080",
     "https://elegant1-we27.vercel.app"
   ],
   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
