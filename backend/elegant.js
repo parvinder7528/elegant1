@@ -15,20 +15,31 @@ const app = express();
 
 // CORS setup (allow frontend)
 // Simple CORS setup - no credentials needed
+// app.use(cors({
+//   origin: [
+//     "http://localhost:8080",
+//     "https://elegant1-we27.vercel.app",
+//     "https://elegant1-backend.vercel.app",
+//     "http://localhost:5000"
+//   ],
+//   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+//    credentials: true
+// }));
+
+// // Add this BEFORE your routes - handles preflight requests
+// // app.options('*', cors());
 app.use(cors({
   origin: [
-    "http://localhost:8080",
     "https://elegant1-we27.vercel.app",
-    "https://elegant1-backend.vercel.app",
-    "http://localhost:5000"
+    "http://localhost:8080",
   ],
   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-   credentials: true
+  allowedHeaders: ["Content-Type", "Authorization"],
+  credentials: true
 }));
 
-// Add this BEFORE your routes - handles preflight requests
-// app.options('*', cors());
-
+/* ✅ VERY IMPORTANT FOR VERCEL */
+app.options("*", cors());
 
 // Parse JSON body
 app.use(express.json());
