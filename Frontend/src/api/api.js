@@ -9,6 +9,7 @@ import axios from "axios";
 
 // export default API;
 
+
 const API = axios.create({
   baseURL: "https://elegant1-backend.vercel.app",
   headers: {
