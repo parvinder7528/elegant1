@@ -43,6 +43,7 @@ const BookingSection = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
+    console.log(name, value,"===");
     setFormData((prev) => ({ ...prev, [name]: value }));
     setErrors((prev) => ({ ...prev, [name]: "" })); // clear error on typing
   };
@@ -210,8 +211,8 @@ const BookingSection = () => {
                     errors.service ? "border-red-500 focus:ring-red-500" : "border-gray-300 focus:ring-rose-500"
                   }`}
                 >
-                  <option value="651c8f0a1e8b0a5d2c4f1234">Select service</option>
-                  <option value="651c8f0a1e8b0a5d2c4f1234">Spa & Aesthetics</option>
+                  <option value="">Select service</option>
+                  <option value="651c8f0a1e8b0a5d2c4f1634">Spa & Aesthetics</option>
                   <option value="651c8f0a1e8b0a5d2c4f1234">Hair Beauty</option>
                 </select>
                 {errors.service && <p className="text-red-600 font-bold text-sm mt-1">{errors.service}</p>}

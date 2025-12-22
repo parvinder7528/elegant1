@@ -74,7 +74,6 @@ const admincontroller = {
         notes,
       });
 
-      console.log("BOOKING CREATED:", booking);
 
       return res.status(201).json({
         success: true,
