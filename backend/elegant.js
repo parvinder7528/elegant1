@@ -28,18 +28,18 @@ const app = express();
 
 // // Add this BEFORE your routes - handles preflight requests
 // // app.options('*', cors());
-app.use(cors({
-  origin: [
-    "https://elegant1-we27.vercel.app",
-    "http://localhost:8080",
-  ],
-  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-  allowedHeaders: ["Content-Type", "Authorization"],
-  credentials: true
-}));
+// app.use(cors({
+//   origin: [
+//     "https://elegant1-we27.vercel.app",
+//     "http://localhost:8080",
+//   ],
+//   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+//   allowedHeaders: ["Content-Type", "Authorization"],
+//   credentials: true
+// }));
 
 /* ✅ VERY IMPORTANT FOR VERCEL */
-app.options("*", cors());
+app.use( cors());
 
 // Parse JSON body
 app.use(express.json());
