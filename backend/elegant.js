@@ -4,11 +4,7 @@ import connectDB from "./config/db.js";
 import adminRoutes from "./routes/adminRoutes.js";
 import cors from "cors";
 
-// Load env variables
-dotenv.config();
 
-// Connect database
-connectDB();
 
 // Create app
 const app = express();
@@ -39,6 +35,11 @@ const app = express();
 // }));
 
 /* ✅ VERY IMPORTANT FOR VERCEL */
+// Load env variables
+dotenv.config();
+
+// Connect database
+connectDB();
 app.use( cors());
 
 // Parse JSON body

@@ -11,7 +11,7 @@ import axios from "axios";
 
 
 const API = axios.create({
-  baseURL: "https://elegant1-backend.vercel.app",
+  baseURL: "https://elegantbackend-1.onrender.com",
   
 });
 
