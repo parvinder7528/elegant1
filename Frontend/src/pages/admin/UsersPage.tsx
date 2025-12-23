@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
+import API from "../../api/api";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -11,34 +11,59 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { Search, Plus, MoreHorizontal, Mail, Phone } from "lucide-react";
+import { Search, Plus, Mail, Phone, Eye, Calendar, Trash2 } from "lucide-react";
 import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+  DialogClose,
+} from "@/components/ui/dialog";
 
 const UsersPage = () => {
   const [users, setUsers] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
+  const [selectedUser, setSelectedUser] = useState<any>(null);
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const [bookings, setBookings] = useState([]);
 
-  // Fetch users from backend
+  const [loadingProfile, setLoadingProfile] = useState(false);
+
+  const getStatusColor = (status: string) => {
+    switch (status.toLowerCase()) {
+      case "active":
+        return "bg-green-100 text-green-800";
+      case "inactive":
+        return "bg-red-100 text-red-800";
+      default:
+        return "bg-gray-100 text-gray-800";
+    }
+  };
+
+    const handleDelete = async (userId: string) => {
+    // if (!confirm("Are you sure you want to delete this user?")) return;
+    try {
+      await API.delete(`/api/user/${userId}`);
+      setUsers(users.filter((u: any) => u._id !== userId));
+      alert("User deleted successfully");
+    } catch (error) {
+      console.error("Delete failed:", error);
+      alert("Failed to delete user");
+    }
+  };
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const response = await axios.get(
-          "http://localhost:5000/api/getalluser",
-        );
-        console.log(response); // your backend route
+        const response = await API.get("/api/getalluser");
+        
         if (response.data.success) {
-          setUsers(response.data.data); // assuming your API returns { success, data: [...] }
+          setUsers(response.data.data);
         }
       } catch (error) {
         console.error("Error fetching users:", error);
       }
     };
-
     fetchUsers();
   }, []);
 
@@ -48,18 +73,38 @@ const UsersPage = () => {
       user.email.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
-  const getStatusColor = (status: string) => {
-    switch (status) {
-      case "VIP":
-        return "bg-primary/10 text-primary";
-      case "Active":
-        return "bg-accent/10 text-accent";
-      case "New":
-        return "bg-rose-gold/20 text-rose-gold";
-      default:
-        return "bg-muted text-muted-foreground";
+  
+
+
+    const handleBooking = async (userId: string) => {
+    try {
+      const response = await API.get(`/api/bookings/${userId}`);
+      if (response.data.success) {
+        setBookings(response.data.data);
+        setSelectedUser(users.find(u => u._id === userId));
+        setIsDialogOpen(true);
+      }
+    } catch (error) {
+      console.error("Error fetching bookings:", error);
+      alert("Failed to fetch bookings");
     }
   };
+  const openProfile = async (user: any) => {
+    setLoadingProfile(true);
+    try {
+      const response = await API.get(`/api/user/${user._id}`);
+      if (response.data.success) {
+        setSelectedUser(response.data.data);
+        setIsDialogOpen(true);
+      }
+    } catch (error) {
+      console.error("Failed to fetch user profile:", error);
+      // alert("Failed to load profile");
+    } finally {
+      setLoadingProfile(false);
+    }
+  };
+
 
   return (
     <div className="space-y-6 animate-fade-in">
@@ -68,14 +113,8 @@ const UsersPage = () => {
           <h1 className="text-3xl font-display font-bold text-foreground">
             Users
           </h1>
-          <p className="text-muted-foreground mt-1">
-            Manage your salon clients
-          </p>
+          <p className="text-muted-foreground mt-1">Manage your salon clients</p>
         </div>
-        <Button>
-          <Plus className="w-4 h-4 mr-2" />
-          Add New User
-        </Button>
       </div>
 
       <Card className="border-0 shadow-card bg-card">
@@ -111,9 +150,7 @@ const UsersPage = () => {
                         {user.name.charAt(0)}
                       </span>
                     </div>
-                    <span className="font-medium text-foreground">
-                      {user.name}
-                    </span>
+                    <span className="font-medium text-foreground">{user.name}</span>
                   </div>
                 </TableCell>
                 <TableCell>
@@ -124,46 +161,87 @@ const UsersPage = () => {
                     </div>
                     <div className="flex items-center gap-2 text-sm text-muted-foreground">
                       <Phone className="w-3 h-3" />
-                      {user.phone || "-"} {/* fallback if phone missing */}
+                      {user.phone || "-"}
                     </div>
                   </div>
                 </TableCell>
                 <TableCell>
-                  <span className="font-medium text-foreground">
-                    {user.visits || 0}
-                  </span>
+                  <span className="font-medium text-foreground">{user.visits || 0}</span>
                 </TableCell>
                 <TableCell>
                   <span
                     className={`text-xs px-3 py-1 rounded-full font-medium ${getStatusColor(
-                      user.status || "New"
+                      user.status || "inactive"
                     )}`}
                   >
-                    {user.status || "New"}
+                    {user.status ? user.status : "Inactive"}
                   </span>
                 </TableCell>
-                <TableCell className="text-right">
-                  <DropdownMenu>
-                    <DropdownMenuTrigger asChild>
-                      <Button variant="ghost" size="icon">
-                        <MoreHorizontal className="w-4 h-4" />
-                      </Button>
-                    </DropdownMenuTrigger>
-                    <DropdownMenuContent align="end">
-                      <DropdownMenuItem>View Profile</DropdownMenuItem>
-                      <DropdownMenuItem>Edit User</DropdownMenuItem>
-                      <DropdownMenuItem>Booking History</DropdownMenuItem>
-                      <DropdownMenuItem className="text-destructive">
-                        Delete
-                      </DropdownMenuItem>
-                    </DropdownMenuContent>
-                  </DropdownMenu>
+                <TableCell className="text-right flex justify-end gap-2">
+                  {/* View Profile */}
+                 <Button variant="ghost" size="icon" onClick={() => openProfile(user)}>
+                    <Eye className="w-4 h-4" />
+                  </Button>
+
+                  {/* Booking */}
+                 <Button variant="ghost" size="icon" onClick={() => handleBooking(user._id)}>
+                    <Calendar className="w-4 h-4" />
+                  </Button>
+
+                  {/* Delete */}
+                 <Button variant="ghost" size="icon" onClick={() => handleDelete(user._id)}>
+                    <Trash2 className="w-4 h-4 text-destructive" />
+                  </Button>
                 </TableCell>
               </TableRow>
             ))}
           </TableBody>
         </Table>
       </Card>
+
+      {/* View Profile Modal */}
+      {selectedUser && (
+        <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
+          <DialogContent className="sm:max-w-lg">
+            <DialogHeader>
+              <DialogTitle>{selectedUser.name}</DialogTitle>
+              <DialogDescription>
+                View full profile details of the user.
+              </DialogDescription>
+            </DialogHeader>
+
+            <div className="space-y-4 mt-4">
+              <div>
+                <p>
+                  <strong>Email:</strong> {selectedUser.email}
+                </p>
+                <p>
+                  <strong>Phone:</strong> {selectedUser.phone || "-"}
+                </p>
+                <p>
+                  <strong>Visits:</strong> {selectedUser.visits || 0}
+                </p>
+                <p>
+                  <strong>Status:</strong>{" "}
+                  <span
+                    className={`px-2 py-1 rounded-full ${getStatusColor(
+                      selectedUser.status || "inactive"
+                    )}`}
+                  >
+                    {selectedUser.status ? selectedUser.status : "Inactive"}
+                  </span>
+                </p>
+              </div>
+            </div>
+
+            <div className="mt-6 flex justify-end">
+              <DialogClose asChild>
+                <Button>Close</Button>
+              </DialogClose>
+            </div>
+          </DialogContent>
+        </Dialog>
+      )}
     </div>
   );
 };

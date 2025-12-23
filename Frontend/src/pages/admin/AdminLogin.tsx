@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Eye, EyeOff, Sparkles } from "lucide-react";
 import { toast } from "sonner";
+import API from "../../api/api"; // Axios instance with baseURL
 
 const AdminLogin = () => {
   const navigate = useNavigate();
@@ -17,16 +18,28 @@ const AdminLogin = () => {
     e.preventDefault();
     setIsLoading(true);
 
-    // Simulate login - replace with actual auth when Cloud is enabled
-    setTimeout(() => {
-      if (email && password) {
-        toast.success("Welcome to Elan Beauty Admin!");
+    try {
+      const response = await API.post("/api/login", { email, password });
+
+      if (response.data.success) {
+        const { token, user } = response.data;
+
+        // Store token in localStorage for authenticated requests
+        localStorage.setItem("authToken", token);
+
+        toast.success(`Welcome back, ${user.name}!`);
         navigate("/admin/dashboard");
       } else {
-        toast.error("Please enter your credentials");
+        toast.error(response.data.message || "Login failed");
       }
+    } catch (error: any) {
+      console.error("Login error:", error);
+      toast.error(
+        error.response?.data?.message || "Server error. Please try again."
+      );
+    } finally {
       setIsLoading(false);
-    }, 1000);
+    }
   };
 
   return (
@@ -34,7 +47,7 @@ const AdminLogin = () => {
       {/* Left Panel - Decorative */}
       <div className="hidden lg:flex lg:w-1/2 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-primary via-accent to-burgundy" />
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC4wNSI+PHBhdGggZD0iTTM2IDM0djItSDI0di0yaDEyek0zNiAyNHYySDI0di0yaDEyeiIvPjwvZz48L2c+PC9zdmc+')] opacity-30" />
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,...')] opacity-30" />
         <div className="relative z-10 flex flex-col items-center justify-center w-full p-12 text-primary-foreground">
           <div className="mb-8 animate-fade-in">
             <Sparkles className="w-16 h-16 mb-4 mx-auto opacity-90" />
@@ -45,20 +58,6 @@ const AdminLogin = () => {
           <p className="text-xl opacity-90 text-center max-w-md animate-slide-up" style={{ animationDelay: "0.1s" }}>
             Elevate your salon management with elegance and efficiency
           </p>
-          <div className="mt-16 grid grid-cols-3 gap-8 animate-fade-in" style={{ animationDelay: "0.3s" }}>
-            <div className="text-center">
-              <div className="text-3xl font-display font-bold">500+</div>
-              <div className="text-sm opacity-80">Happy Clients</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-display font-bold">50+</div>
-              <div className="text-sm opacity-80">Services</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-display font-bold">4.9★</div>
-              <div className="text-sm opacity-80">Rating</div>
-            </div>
-          </div>
         </div>
       </div>
 
@@ -77,9 +76,7 @@ const AdminLogin = () => {
 
           <form onSubmit={handleLogin} className="space-y-6">
             <div className="space-y-2">
-              <Label htmlFor="email" className="text-sm font-medium">
-                Email Address
-              </Label>
+              <Label htmlFor="email" className="text-sm font-medium">Email Address</Label>
               <Input
                 id="email"
                 type="email"
@@ -91,9 +88,7 @@ const AdminLogin = () => {
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="password" className="text-sm font-medium">
-                Password
-              </Label>
+              <Label htmlFor="password" className="text-sm font-medium">Password</Label>
               <div className="relative">
                 <Input
                   id="password"
@@ -118,18 +113,10 @@ const AdminLogin = () => {
                 <input type="checkbox" className="rounded border-input" />
                 <span className="text-muted-foreground">Remember me</span>
               </label>
-              <a href="#" className="text-primary hover:underline">
-                Forgot password?
-              </a>
+              <a href="#" className="text-primary hover:underline">Forgot password?</a>
             </div>
 
-            <Button
-              type="submit"
-            //   variant="elegant"
-              size="lg"
-              className="w-full"
-              disabled={isLoading}
-            >
+            <Button type="submit" size="lg" className="w-full" disabled={isLoading}>
               {isLoading ? (
                 <div className="flex items-center gap-2">
                   <div className="w-5 h-5 border-2 border-primary-foreground/30 border-t-primary-foreground rounded-full animate-spin" />
@@ -143,9 +130,7 @@ const AdminLogin = () => {
 
           <p className="text-center text-sm text-muted-foreground mt-8">
             Need help? Contact{" "}
-            <a href="#" className="text-primary hover:underline">
-              support@elanbeauty.com
-            </a>
+            <a href="#" className="text-primary hover:underline">support@elanbeauty.com</a>
           </p>
         </div>
       </div>
