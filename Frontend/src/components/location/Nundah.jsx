@@ -106,224 +106,163 @@ const Nundah = () => {
   className="py-20 bg-gradient-to-br from-rose-50 to-pink-50"
 >
   <div className="max-w-6xl mx-auto px-6">
+    {/* SECTION HEADER */}
     <div className="text-center mb-16">
       <h2 className="font-serif text-4xl text-gray-800 mb-4">
         Services &amp; Pricing
       </h2>
-      <div className="w-24 h-px bg-rose-400 mx-auto mb-6" />
+      <div className="w-24 h-px bg-[#c69c7e] mx-auto mb-6" />
       <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-        Explore our comprehensive menu of beauty and wellness services,
-        featuring the latest techniques and premium products.
+        Discover our comprehensive range of beauty and wellness services,
+        designed to enhance your natural radiance.
       </p>
     </div>
+
     <div className="space-y-12">
+      {/* ================= SPA & AESTHETICS ================= */}
       <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
-        <div className="bg-gradient-to-r from-rose-500 to-pink-500 px-8 py-6">
+        <div className="bg-[#c69c7e] px-8 py-6">
           <h3 className="text-2xl font-serif text-white">
             Spa &amp; Aesthetics
           </h3>
         </div>
-        <div className="p-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="flex justify-between items-center p-4 border border-gray-100 rounded-lg hover:bg-rose-50 transition-colors">
+
+        <div className="p-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+          {[
+            ["Signature Facial", "60 min", "$120"],
+            ["Anti-Aging Treatment", "75 min", "$150"],
+            ["Hydrating Facial", "45 min", "$95"],
+            ["Deep Cleansing Facial", "60 min", "$110"],
+          ].map(([title, time, price], i) => (
+            <div
+              key={i}
+              className="flex justify-between items-center p-4 border border-gray-100 rounded-lg hover:bg-[#f4ece6] transition"
+            >
               <div>
-                <h4 className="font-medium text-gray-800">Signature Facial</h4>
-                <p className="text-sm text-gray-600">60 min</p>
+                <h4 className="font-medium text-gray-800">{title}</h4>
+                <p className="text-sm text-gray-600">{time}</p>
               </div>
-              <div className="text-right">
-                <p className="font-semibold text-rose-600">$125</p>
-              </div>
+              <p className="font-semibold text-[#c69c7e]">{price}</p>
             </div>
-            <div className="flex justify-between items-center p-4 border border-gray-100 rounded-lg hover:bg-rose-50 transition-colors">
-              <div>
-                <h4 className="font-medium text-gray-800">
-                  Anti-Aging Treatment
-                </h4>
-                <p className="text-sm text-gray-600">75 min</p>
-              </div>
-              <div className="text-right">
-                <p className="font-semibold text-rose-600">$155</p>
-              </div>
-            </div>
-            <div className="flex justify-between items-center p-4 border border-gray-100 rounded-lg hover:bg-rose-50 transition-colors">
-              <div>
-                <h4 className="font-medium text-gray-800">Hydrating Facial</h4>
-                <p className="text-sm text-gray-600">45 min</p>
-              </div>
-              <div className="text-right">
-                <p className="font-semibold text-rose-600">$100</p>
-              </div>
-            </div>
-            <div className="flex justify-between items-center p-4 border border-gray-100 rounded-lg hover:bg-rose-50 transition-colors">
-              <div>
-                <h4 className="font-medium text-gray-800">
-                  Deep Cleansing Facial
-                </h4>
-                <p className="text-sm text-gray-600">60 min</p>
-              </div>
-              <div className="text-right">
-                <p className="font-semibold text-rose-600">$115</p>
-              </div>
-            </div>
-            <div className="flex justify-between items-center p-4 border border-gray-100 rounded-lg hover:bg-rose-50 transition-colors">
-              <div>
-                <h4 className="font-medium text-gray-800">Microdermabrasion</h4>
-                <p className="text-sm text-gray-600">45 min</p>
-              </div>
-              <div className="text-right">
-                <p className="font-semibold text-rose-600">$130</p>
-              </div>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
+
+      {/* ================= HAIR BEAUTY ================= */}
       <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
-        <div className="bg-gradient-to-r from-rose-500 to-pink-500 px-8 py-6">
+        <div className="bg-[#c69c7e] px-8 py-6">
           <h3 className="text-2xl font-serif text-white">Hair Beauty</h3>
         </div>
-        <div className="p-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="flex justify-between items-center p-4 border border-gray-100 rounded-lg hover:bg-rose-50 transition-colors">
+
+        <div className="p-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+          {[
+            ["Cut & Style", "90 min", "$85"],
+            ["Color & Highlights", "180 min", "$180"],
+            ["Hair Treatment", "60 min", "$65"],
+            ["Bridal Hair", "120 min", "$150"],
+          ].map(([title, time, price], i) => (
+            <div
+              key={i}
+              className="flex justify-between items-center p-4 border border-gray-100 rounded-lg hover:bg-[#f4ece6] transition"
+            >
               <div>
-                <h4 className="font-medium text-gray-800">Cut &amp; Style</h4>
-                <p className="text-sm text-gray-600">90 min</p>
+                <h4 className="font-medium text-gray-800">{title}</h4>
+                <p className="text-sm text-gray-600">{time}</p>
               </div>
-              <div className="text-right">
-                <p className="font-semibold text-rose-600">$90</p>
-              </div>
+              <p className="font-semibold text-[#c69c7e]">{price}</p>
             </div>
-            <div className="flex justify-between items-center p-4 border border-gray-100 rounded-lg hover:bg-rose-50 transition-colors">
-              <div>
-                <h4 className="font-medium text-gray-800">
-                  Color &amp; Highlights
-                </h4>
-                <p className="text-sm text-gray-600">180 min</p>
-              </div>
-              <div className="text-right">
-                <p className="font-semibold text-rose-600">$190</p>
-              </div>
-            </div>
-            <div className="flex justify-between items-center p-4 border border-gray-100 rounded-lg hover:bg-rose-50 transition-colors">
-              <div>
-                <h4 className="font-medium text-gray-800">Hair Treatment</h4>
-                <p className="text-sm text-gray-600">60 min</p>
-              </div>
-              <div className="text-right">
-                <p className="font-semibold text-rose-600">$70</p>
-              </div>
-            </div>
-            <div className="flex justify-between items-center p-4 border border-gray-100 rounded-lg hover:bg-rose-50 transition-colors">
-              <div>
-                <h4 className="font-medium text-gray-800">Bridal Hair</h4>
-                <p className="text-sm text-gray-600">120 min</p>
-              </div>
-              <div className="text-right">
-                <p className="font-semibold text-rose-600">$160</p>
-              </div>
-            </div>
-            <div className="flex justify-between items-center p-4 border border-gray-100 rounded-lg hover:bg-rose-50 transition-colors">
-              <div>
-                <h4 className="font-medium text-gray-800">Hair Extensions</h4>
-                <p className="text-sm text-gray-600">150 min</p>
-              </div>
-              <div className="text-right">
-                <p className="font-semibold text-rose-600">$250</p>
-              </div>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
+
+      {/* ================= NAILS ================= */}
       <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
-        <div className="bg-gradient-to-r from-rose-500 to-pink-500 px-8 py-6">
+        <div className="bg-[#c69c7e] px-8 py-6">
           <h3 className="text-2xl font-serif text-white">Nails</h3>
         </div>
-        <div className="p-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="flex justify-between items-center p-4 border border-gray-100 rounded-lg hover:bg-rose-50 transition-colors">
+
+        <div className="p-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+          {[
+            ["Gel Manicure", "45 min", "$45"],
+            ["Gel Pedicure", "60 min", "$55"],
+            ["Nail Art", "30 min", "$25"],
+            ["French Manicure", "45 min", "$50"],
+          ].map(([title, time, price], i) => (
+            <div
+              key={i}
+              className="flex justify-between items-center p-4 border border-gray-100 rounded-lg hover:bg-[#f4ece6] transition"
+            >
               <div>
-                <h4 className="font-medium text-gray-800">Gel Manicure</h4>
-                <p className="text-sm text-gray-600">45 min</p>
+                <h4 className="font-medium text-gray-800">{title}</h4>
+                <p className="text-sm text-gray-600">{time}</p>
               </div>
-              <div className="text-right">
-                <p className="font-semibold text-rose-600">$50</p>
-              </div>
+              <p className="font-semibold text-[#c69c7e]">{price}</p>
             </div>
-            <div className="flex justify-between items-center p-4 border border-gray-100 rounded-lg hover:bg-rose-50 transition-colors">
-              <div>
-                <h4 className="font-medium text-gray-800">Gel Pedicure</h4>
-                <p className="text-sm text-gray-600">60 min</p>
-              </div>
-              <div className="text-right">
-                <p className="font-semibold text-rose-600">$60</p>
-              </div>
-            </div>
-            <div className="flex justify-between items-center p-4 border border-gray-100 rounded-lg hover:bg-rose-50 transition-colors">
-              <div>
-                <h4 className="font-medium text-gray-800">Nail Art</h4>
-                <p className="text-sm text-gray-600">30 min</p>
-              </div>
-              <div className="text-right">
-                <p className="font-semibold text-rose-600">$30</p>
-              </div>
-            </div>
-            <div className="flex justify-between items-center p-4 border border-gray-100 rounded-lg hover:bg-rose-50 transition-colors">
-              <div>
-                <h4 className="font-medium text-gray-800">French Manicure</h4>
-                <p className="text-sm text-gray-600">45 min</p>
-              </div>
-              <div className="text-right">
-                <p className="font-semibold text-rose-600">$55</p>
-              </div>
-            </div>
-            <div className="flex justify-between items-center p-4 border border-gray-100 rounded-lg hover:bg-rose-50 transition-colors">
-              <div>
-                <h4 className="font-medium text-gray-800">
-                  Acrylic Extensions
-                </h4>
-                <p className="text-sm text-gray-600">90 min</p>
-              </div>
-              <div className="text-right">
-                <p className="font-semibold text-rose-600">$80</p>
-              </div>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
+
+      {/* ================= HEAD SPA ================= */}
       <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
-        <div className="bg-gradient-to-r from-rose-500 to-pink-500 px-8 py-6">
+        <div className="bg-[#c69c7e] px-8 py-6">
           <h3 className="text-2xl font-serif text-white">Head Spa</h3>
         </div>
-        <div className="p-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="flex justify-between items-center p-4 border border-gray-100 rounded-lg hover:bg-rose-50 transition-colors">
-              <div>
-                <h4 className="font-medium text-gray-800">Scalp Treatment</h4>
-                <p className="text-sm text-gray-600">45 min</p>
-              </div>
-              <div className="text-right">
-                <p className="font-semibold text-rose-600">$75</p>
-              </div>
+
+        <div className="p-8 space-y-10">
+          {/* HEAD SPA EXPERIENCE */}
+          <div className="border border-gray-100 rounded-xl p-6 hover:bg-[#f4ece6] transition">
+            <div className="flex justify-between items-center mb-3">
+              <h4 className="text-xl font-semibold text-gray-800">
+                Head Spa Experience
+              </h4>
+              <span className="text-2xl font-bold text-[#c69c7e]">$199*</span>
             </div>
-            <div className="flex justify-between items-center p-4 border border-gray-100 rounded-lg hover:bg-rose-50 transition-colors">
-              <div>
-                <h4 className="font-medium text-gray-800">Hair Mask Therapy</h4>
-                <p className="text-sm text-gray-600">60 min</p>
-              </div>
-              <div className="text-right">
-                <p className="font-semibold text-rose-600">$85</p>
-              </div>
+            <p className="text-sm text-gray-600 mb-4">60 min</p>
+
+            <h5 className="font-medium text-gray-800 mb-2">
+              Treatment Includes:
+            </h5>
+            <ul className="grid grid-cols-1 md:grid-cols-2 gap-2 text-sm text-gray-600">
+              <li>• Herbal &amp; Epsom Salt Foot Bath</li>
+              <li>• Dry Head Massage</li>
+              <li>• Steam Therapy</li>
+              <li>• Radiating Facial</li>
+              <li>• Neck, Shoulder &amp; Arm Massage</li>
+              <li>• Tailored Shampoo &amp; Conditioning</li>
+              <li>• Scalp Massage</li>
+              <li>• Waterfall Halo</li>
+              <li>• Gentle Hair Dry</li>
+            </ul>
+
+            <p className="text-xs text-gray-500 italic mt-3">
+              *Additional charges may apply for long hair from $20
+            </p>
+          </div>
+
+          {/* HEAD SPA PREMIUM */}
+          <div className="border border-gray-100 rounded-xl p-6 hover:bg-[#f4ece6] transition">
+            <div className="flex justify-between items-center mb-3">
+              <h4 className="text-xl font-semibold text-gray-800">
+                Head Spa Premium
+              </h4>
+              <span className="text-2xl font-bold text-[#c69c7e]">$299*</span>
             </div>
-            <div className="flex justify-between items-center p-4 border border-gray-100 rounded-lg hover:bg-rose-50 transition-colors">
-              <div>
-                <h4 className="font-medium text-gray-800">
-                  Stress Relief Head Massage
-                </h4>
-                <p className="text-sm text-gray-600">30 min</p>
-              </div>
-              <div className="text-right">
-                <p className="font-semibold text-rose-600">$55</p>
-              </div>
-            </div>
+            <p className="text-sm text-gray-600 mb-4">90 min</p>
+
+            <h5 className="font-medium text-gray-800 mb-2">
+              Treatment Includes:
+            </h5>
+            <ul className="grid grid-cols-1 md:grid-cols-2 gap-2 text-sm text-gray-600">
+              <li>• All Head Spa Experience Treatments</li>
+              <li>• Extended Massage Time</li>
+              <li>• Customized Face Mask</li>
+              <li>• Restorative Hair Mask</li>
+              <li>• Scalp Renewal Exfoliation</li>
+            </ul>
+
+            <p className="text-xs text-gray-500 italic mt-3">
+              *Additional charges may apply for long hair from $20
+            </p>
           </div>
         </div>
       </div>

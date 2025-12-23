@@ -1,7 +1,7 @@
 import React from "react";
 import Header from "./Header";
 import Footer from "./Footer";
-
+import BookingSection from "./booking/BookingSection"
 const Regents = () => {
   return (
     <>
@@ -112,182 +112,176 @@ const Regents = () => {
           </div>
         </div>
       </section>
-      <section
-        id="services"
-        className="py-20 bg-gradient-to-br from-rose-50 to-pink-50"
-      >
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="font-serif text-4xl text-gray-800 mb-4">
-              Services &amp; Pricing
-            </h2>
-            <div className="w-24 h-px bg-rose-400 mx-auto mb-6" />
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Discover our comprehensive range of beauty and wellness services,
-              each designed to enhance your natural radiance.
+    <section
+  id="services"
+  className="py-20 bg-gradient-to-br from-rose-50 to-pink-50"
+>
+  <div className="max-w-6xl mx-auto px-6">
+    {/* SECTION HEADER */}
+    <div className="text-center mb-16">
+      <h2 className="font-serif text-4xl text-gray-800 mb-4">
+        Services &amp; Pricing
+      </h2>
+      <div className="w-24 h-px bg-[#c69c7e] mx-auto mb-6" />
+      <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+        Discover our comprehensive range of beauty and wellness services,
+        designed to enhance your natural radiance.
+      </p>
+    </div>
+
+    <div className="space-y-12">
+      {/* ================= SPA & AESTHETICS ================= */}
+      <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
+        <div className="bg-[#c69c7e] px-8 py-6">
+          <h3 className="text-2xl font-serif text-white">
+            Spa &amp; Aesthetics
+          </h3>
+        </div>
+
+        <div className="p-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+          {[
+            ["Signature Facial", "60 min", "$120"],
+            ["Anti-Aging Treatment", "75 min", "$150"],
+            ["Hydrating Facial", "45 min", "$95"],
+            ["Deep Cleansing Facial", "60 min", "$110"],
+          ].map(([title, time, price], i) => (
+            <div
+              key={i}
+              className="flex justify-between items-center p-4 border border-gray-100 rounded-lg hover:bg-[#f4ece6] transition"
+            >
+              <div>
+                <h4 className="font-medium text-gray-800">{title}</h4>
+                <p className="text-sm text-gray-600">{time}</p>
+              </div>
+              <p className="font-semibold text-[#c69c7e]">{price}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* ================= HAIR BEAUTY ================= */}
+      <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
+        <div className="bg-[#c69c7e] px-8 py-6">
+          <h3 className="text-2xl font-serif text-white">Hair Beauty</h3>
+        </div>
+
+        <div className="p-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+          {[
+            ["Cut & Style", "90 min", "$85"],
+            ["Color & Highlights", "180 min", "$180"],
+            ["Hair Treatment", "60 min", "$65"],
+            ["Bridal Hair", "120 min", "$150"],
+          ].map(([title, time, price], i) => (
+            <div
+              key={i}
+              className="flex justify-between items-center p-4 border border-gray-100 rounded-lg hover:bg-[#f4ece6] transition"
+            >
+              <div>
+                <h4 className="font-medium text-gray-800">{title}</h4>
+                <p className="text-sm text-gray-600">{time}</p>
+              </div>
+              <p className="font-semibold text-[#c69c7e]">{price}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* ================= NAILS ================= */}
+      <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
+        <div className="bg-[#c69c7e] px-8 py-6">
+          <h3 className="text-2xl font-serif text-white">Nails</h3>
+        </div>
+
+        <div className="p-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+          {[
+            ["Gel Manicure", "45 min", "$45"],
+            ["Gel Pedicure", "60 min", "$55"],
+            ["Nail Art", "30 min", "$25"],
+            ["French Manicure", "45 min", "$50"],
+          ].map(([title, time, price], i) => (
+            <div
+              key={i}
+              className="flex justify-between items-center p-4 border border-gray-100 rounded-lg hover:bg-[#f4ece6] transition"
+            >
+              <div>
+                <h4 className="font-medium text-gray-800">{title}</h4>
+                <p className="text-sm text-gray-600">{time}</p>
+              </div>
+              <p className="font-semibold text-[#c69c7e]">{price}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* ================= HEAD SPA ================= */}
+      <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
+        <div className="bg-[#c69c7e] px-8 py-6">
+          <h3 className="text-2xl font-serif text-white">Head Spa</h3>
+        </div>
+
+        <div className="p-8 space-y-10">
+          {/* HEAD SPA EXPERIENCE */}
+          <div className="border border-gray-100 rounded-xl p-6 hover:bg-[#f4ece6] transition">
+            <div className="flex justify-between items-center mb-3">
+              <h4 className="text-xl font-semibold text-gray-800">
+                Head Spa Experience
+              </h4>
+              <span className="text-2xl font-bold text-[#c69c7e]">$199*</span>
+            </div>
+            <p className="text-sm text-gray-600 mb-4">60 min</p>
+
+            <h5 className="font-medium text-gray-800 mb-2">
+              Treatment Includes:
+            </h5>
+            <ul className="grid grid-cols-1 md:grid-cols-2 gap-2 text-sm text-gray-600">
+              <li>• Herbal &amp; Epsom Salt Foot Bath</li>
+              <li>• Dry Head Massage</li>
+              <li>• Steam Therapy</li>
+              <li>• Radiating Facial</li>
+              <li>• Neck, Shoulder &amp; Arm Massage</li>
+              <li>• Tailored Shampoo &amp; Conditioning</li>
+              <li>• Scalp Massage</li>
+              <li>• Waterfall Halo</li>
+              <li>• Gentle Hair Dry</li>
+            </ul>
+
+            <p className="text-xs text-gray-500 italic mt-3">
+              *Additional charges may apply for long hair from $20
             </p>
           </div>
-          <div className="space-y-12">
-            <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
-              <div className="bg-gradient-to-r from-rose-500 to-pink-500 px-8 py-6">
-                <h3 className="text-2xl font-serif text-white">
-                  Spa &amp; Aesthetics
-                </h3>
-              </div>
-              <div className="p-8">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div className="flex justify-between items-center p-4 border border-gray-100 rounded-lg hover:bg-rose-50 transition-colors">
-                    <div>
-                      <h4 className="font-medium text-gray-800">
-                        Signature Facial
-                      </h4>
-                      <p className="text-sm text-gray-600">60 min</p>
-                    </div>
-                    <div className="text-right">
-                      <p className="font-semibold text-rose-600">$120</p>
-                    </div>
-                  </div>
-                  <div className="flex justify-between items-center p-4 border border-gray-100 rounded-lg hover:bg-rose-50 transition-colors">
-                    <div>
-                      <h4 className="font-medium text-gray-800">
-                        Anti-Aging Treatment
-                      </h4>
-                      <p className="text-sm text-gray-600">75 min</p>
-                    </div>
-                    <div className="text-right">
-                      <p className="font-semibold text-rose-600">$150</p>
-                    </div>
-                  </div>
-                  <div className="flex justify-between items-center p-4 border border-gray-100 rounded-lg hover:bg-rose-50 transition-colors">
-                    <div>
-                      <h4 className="font-medium text-gray-800">
-                        Hydrating Facial
-                      </h4>
-                      <p className="text-sm text-gray-600">45 min</p>
-                    </div>
-                    <div className="text-right">
-                      <p className="font-semibold text-rose-600">$95</p>
-                    </div>
-                  </div>
-                  <div className="flex justify-between items-center p-4 border border-gray-100 rounded-lg hover:bg-rose-50 transition-colors">
-                    <div>
-                      <h4 className="font-medium text-gray-800">
-                        Deep Cleansing Facial
-                      </h4>
-                      <p className="text-sm text-gray-600">60 min</p>
-                    </div>
-                    <div className="text-right">
-                      <p className="font-semibold text-rose-600">$110</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
+
+          {/* HEAD SPA PREMIUM */}
+          <div className="border border-gray-100 rounded-xl p-6 hover:bg-[#f4ece6] transition">
+            <div className="flex justify-between items-center mb-3">
+              <h4 className="text-xl font-semibold text-gray-800">
+                Head Spa Premium
+              </h4>
+              <span className="text-2xl font-bold text-[#c69c7e]">$299*</span>
             </div>
-            <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
-              <div className="bg-gradient-to-r from-rose-500 to-pink-500 px-8 py-6">
-                <h3 className="text-2xl font-serif text-white">Hair Beauty</h3>
-              </div>
-              <div className="p-8">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div className="flex justify-between items-center p-4 border border-gray-100 rounded-lg hover:bg-rose-50 transition-colors">
-                    <div>
-                      <h4 className="font-medium text-gray-800">
-                        Cut &amp; Style
-                      </h4>
-                      <p className="text-sm text-gray-600">90 min</p>
-                    </div>
-                    <div className="text-right">
-                      <p className="font-semibold text-rose-600">$85</p>
-                    </div>
-                  </div>
-                  <div className="flex justify-between items-center p-4 border border-gray-100 rounded-lg hover:bg-rose-50 transition-colors">
-                    <div>
-                      <h4 className="font-medium text-gray-800">
-                        Color &amp; Highlights
-                      </h4>
-                      <p className="text-sm text-gray-600">180 min</p>
-                    </div>
-                    <div className="text-right">
-                      <p className="font-semibold text-rose-600">$180</p>
-                    </div>
-                  </div>
-                  <div className="flex justify-between items-center p-4 border border-gray-100 rounded-lg hover:bg-rose-50 transition-colors">
-                    <div>
-                      <h4 className="font-medium text-gray-800">
-                        Hair Treatment
-                      </h4>
-                      <p className="text-sm text-gray-600">60 min</p>
-                    </div>
-                    <div className="text-right">
-                      <p className="font-semibold text-rose-600">$65</p>
-                    </div>
-                  </div>
-                  <div className="flex justify-between items-center p-4 border border-gray-100 rounded-lg hover:bg-rose-50 transition-colors">
-                    <div>
-                      <h4 className="font-medium text-gray-800">Bridal Hair</h4>
-                      <p className="text-sm text-gray-600">120 min</p>
-                    </div>
-                    <div className="text-right">
-                      <p className="font-semibold text-rose-600">$150</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
-              <div className="bg-gradient-to-r from-rose-500 to-pink-500 px-8 py-6">
-                <h3 className="text-2xl font-serif text-white">Nails</h3>
-              </div>
-              <div className="p-8">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div className="flex justify-between items-center p-4 border border-gray-100 rounded-lg hover:bg-rose-50 transition-colors">
-                    <div>
-                      <h4 className="font-medium text-gray-800">
-                        Gel Manicure
-                      </h4>
-                      <p className="text-sm text-gray-600">45 min</p>
-                    </div>
-                    <div className="text-right">
-                      <p className="font-semibold text-rose-600">$45</p>
-                    </div>
-                  </div>
-                  <div className="flex justify-between items-center p-4 border border-gray-100 rounded-lg hover:bg-rose-50 transition-colors">
-                    <div>
-                      <h4 className="font-medium text-gray-800">
-                        Gel Pedicure
-                      </h4>
-                      <p className="text-sm text-gray-600">60 min</p>
-                    </div>
-                    <div className="text-right">
-                      <p className="font-semibold text-rose-600">$55</p>
-                    </div>
-                  </div>
-                  <div className="flex justify-between items-center p-4 border border-gray-100 rounded-lg hover:bg-rose-50 transition-colors">
-                    <div>
-                      <h4 className="font-medium text-gray-800">Nail Art</h4>
-                      <p className="text-sm text-gray-600">30 min</p>
-                    </div>
-                    <div className="text-right">
-                      <p className="font-semibold text-rose-600">$25</p>
-                    </div>
-                  </div>
-                  <div className="flex justify-between items-center p-4 border border-gray-100 rounded-lg hover:bg-rose-50 transition-colors">
-                    <div>
-                      <h4 className="font-medium text-gray-800">
-                        French Manicure
-                      </h4>
-                      <p className="text-sm text-gray-600">45 min</p>
-                    </div>
-                    <div className="text-right">
-                      <p className="font-semibold text-rose-600">$50</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <p className="text-sm text-gray-600 mb-4">90 min</p>
+
+            <h5 className="font-medium text-gray-800 mb-2">
+              Treatment Includes:
+            </h5>
+            <ul className="grid grid-cols-1 md:grid-cols-2 gap-2 text-sm text-gray-600">
+              <li>• All Head Spa Experience Treatments</li>
+              <li>• Extended Massage Time</li>
+              <li>• Customized Face Mask</li>
+              <li>• Restorative Hair Mask</li>
+              <li>• Scalp Renewal Exfoliation</li>
+            </ul>
+
+            <p className="text-xs text-gray-500 italic mt-3">
+              *Additional charges may apply for long hair from $20
+            </p>
           </div>
         </div>
-      </section>
+      </div>
+    </div>
+  </div>
+</section>
+
+
       <section className="py-20 bg-white">
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-16">
@@ -451,201 +445,7 @@ const Regents = () => {
           </div>
         </div>
       </section>
-      <section id="booking" className="py-20 bg-white">
-        <div className="max-w-4xl mx-auto px-6">
-          <div className="text-center mb-12">
-            <h2 className="font-serif text-4xl text-gray-800 mb-4">
-              Book Your Appointment
-            </h2>
-            <div className="w-24 h-px bg-rose-400 mx-auto mb-6" />
-            <p className="text-lg text-gray-600">
-              Ready to experience the E'LAN difference at our Regents Park
-              location?
-            </p>
-          </div>
-          <div className="bg-gradient-to-br from-rose-50 to-pink-50 rounded-2xl shadow-xl p-8 md:p-12">
-            <form data-readdy-form="true" id="regents-park-booking">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                <div>
-                  <label
-                    htmlFor="fullName"
-                    className="block text-sm font-medium text-gray-700 mb-2"
-                  >
-                    Full Name *
-                  </label>
-                  <input
-                    id="fullName"
-                    placeholder="Your name"
-                    //
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-500 focus:border-transparent transition-colors text-sm"
-                    type="text"
-                    defaultValue=""
-                    name="fullName"
-                  />
-                </div>
-                <div>
-                  <label
-                    htmlFor="email"
-                    className="block text-sm font-medium text-gray-700 mb-2"
-                  >
-                    Email Address *
-                  </label>
-                  <input
-                    id="email"
-                    placeholder="your@email.com"
-                    //
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-500 focus:border-transparent transition-colors text-sm"
-                    type="email"
-                    defaultValue=""
-                    name="email"
-                  />
-                </div>
-              </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                <div>
-                  <label
-                    htmlFor="phone"
-                    className="block text-sm font-medium text-gray-700 mb-2"
-                  >
-                    Phone Number *
-                  </label>
-                  <input
-                    id="phone"
-                    placeholder="+61 4XX XXX XXX"
-                    //
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-500 focus:border-transparent transition-colors text-sm"
-                    type="tel"
-                    defaultValue=""
-                    name="phone"
-                  />
-                </div>
-                <div>
-                  <label
-                    htmlFor="service"
-                    className="block text-sm font-medium text-gray-700 mb-2"
-                  >
-                    Service Type *
-                  </label>
-                  <select
-                    id="service"
-                    name="service"
-                    //
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-500 focus:border-transparent transition-colors text-sm"
-                  >
-                    <option value="">Select service</option>
-                    <option value="Spa & Aesthetics">
-                      Spa &amp; Aesthetics
-                    </option>
-                    <option value="Hair Beauty">Hair Beauty</option>
-                    <option value="Nails">Nails</option>
-                    <option value="Head Spa">Head Spa</option>
-                    <option value="Makeover">Makeover</option>
-                  </select>
-                </div>
-              </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                <div>
-                  <label
-                    htmlFor="date"
-                    className="block text-sm font-medium text-gray-700 mb-2"
-                  >
-                    Preferred Date *
-                  </label>
-                  <input
-                    id="date"
-                    //
-                    min="2025-12-19"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-500 focus:border-transparent transition-colors text-sm"
-                    type="date"
-                    defaultValue=""
-                    name="date"
-                  />
-                </div>
-                <div>
-                  <label
-                    htmlFor="time"
-                    className="block text-sm font-medium text-gray-700 mb-2"
-                  >
-                    Preferred Time *
-                  </label>
-                  <select
-                    id="time"
-                    name="time"
-                    //
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-500 focus:border-transparent transition-colors text-sm"
-                  >
-                    <option value="">Select time</option>
-                    <option value="9:00 AM">9:00 AM</option>
-                    <option value="9:30 AM">9:30 AM</option>
-                    <option value="10:00 AM">10:00 AM</option>
-                    <option value="10:30 AM">10:30 AM</option>
-                    <option value="11:00 AM">11:00 AM</option>
-                    <option value="11:30 AM">11:30 AM</option>
-                    <option value="12:00 PM">12:00 PM</option>
-                    <option value="12:30 PM">12:30 PM</option>
-                    <option value="1:00 PM">1:00 PM</option>
-                    <option value="1:30 PM">1:30 PM</option>
-                    <option value="2:00 PM">2:00 PM</option>
-                    <option value="2:30 PM">2:30 PM</option>
-                    <option value="3:00 PM">3:00 PM</option>
-                    <option value="3:30 PM">3:30 PM</option>
-                    <option value="4:00 PM">4:00 PM</option>
-                    <option value="4:30 PM">4:30 PM</option>
-                    <option value="5:00 PM">5:00 PM</option>
-                  </select>
-                </div>
-              </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                <div>
-                  <label
-                    htmlFor="guests"
-                    className="block text-sm font-medium text-gray-700 mb-2"
-                  >
-                    Number of Guests
-                  </label>
-                  <select
-                    id="guests"
-                    name="guests"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-500 focus:border-transparent transition-colors text-sm"
-                  >
-                    <option value={1}>1 Guest</option>
-                    <option value={2}>2 Guests</option>
-                    <option value={3}>3 Guests</option>
-                    <option value={4}>4 Guests</option>
-                    <option value={5}>5+ Guests</option>
-                  </select>
-                </div>
-              </div>
-              <div className="mb-8">
-                <label
-                  htmlFor="notes"
-                  className="block text-sm font-medium text-gray-700 mb-2"
-                >
-                  Special Requests or Notes
-                </label>
-                <textarea
-                  id="notes"
-                  name="notes"
-                  placeholder="Any special requests or additional information..."
-                  maxLength={500}
-                  rows={4}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-500 focus:border-transparent transition-colors text-sm resize-none"
-                  defaultValue={""}
-                />
-                <div className="text-right text-xs text-gray-500 mt-1">
-                  0/500 characters
-                </div>
-              </div>
-              <button
-                type="submit"
-                className="w-full bg-rose-500 text-white py-4 px-8 rounded-lg font-medium hover:bg-rose-600 disabled:opacity-50 disabled:cursor-not-allowed transition-colors whitespace-nowrap text-lg"
-              >
-                Book at Regents Park
-              </button>
-            </form>
-          </div>
-        </div>
-      </section>
+      <BookingSection/>
       <Footer />
     </>
   );

@@ -2,10 +2,25 @@ import { useState } from "react";
 import API from "../../api/api";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useLocation } from "react-router-dom";
 
 const BookingSection = () => {
   const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState({});
+  const location = useLocation();
+const getButtonText = () => {
+  if (loading) return "Booking...";
+
+  if (location.pathname === "/locations/nundah") {
+    return "Booking at Nundah";
+  }
+
+  if (location.pathname === "/locations/regents-park") {
+    return "Booking at Regents Park";
+  }
+
+  return "Confirm Booking";
+};
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
@@ -249,13 +264,14 @@ const BookingSection = () => {
               />
             </div>
 
-            <button
-              type="submit"
-              disabled={loading}
-              className="w-full bg-rose-500 text-white py-4 rounded-lg font-medium hover:bg-rose-600 transition"
-            >
-              {loading ? "Booking..." : "Confirm Booking"}
-            </button>
+          <button
+  type="submit"
+  disabled={loading}
+  className="w-full bg-[#c69c7e] text-white py-4 rounded-lg font-medium hover:opacity-90 transition"
+>
+  {getButtonText()}
+</button>
+
           </form>
         </div>
       </div>
