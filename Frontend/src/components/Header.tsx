@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
-import { Link } from "react-router-dom"; // <-- Import Link
+import { Menu, X, MapPin } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -20,6 +20,11 @@ const Header = () => {
     { name: "About", href: "/about" },
     { name: "Gallery", href: "/gallery" },
     { name: "Contact", href: "/contact" },
+  ];
+
+  const locationLinks = [
+    { name: "Regent Park", href: "/locations/regents-park" },
+    { name: "Nundah", href: "/locations/nundah" },
   ];
 
   return (
@@ -44,11 +49,32 @@ const Header = () => {
               <Link
                 key={link.name}
                 to={link.href}
-                className="text-stone-700 font-semibold hover:text-rose-400 transition-colors"
+                className="text-stone-700 font-semibold hover:text-rose-400 transition-colors cursor-pointer"
               >
                 {link.name}
               </Link>
             ))}
+
+            {/* Location Dropdown */}
+            <div className="relative group cursor-pointer">
+              <span className="text-stone-700 font-semibold hover:text-rose-400 transition-colors">
+                Location
+              </span>
+
+              {/* Dropdown */}
+              <div className="absolute left-0 mt-3 w-52 bg-white rounded-lg shadow-lg border border-stone-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                {locationLinks.map((loc) => (
+                  <Link
+                    key={loc.name}
+                    to={loc.href}
+                    className="flex items-center gap-3 px-4 py-3 text-stone-700 hover:bg-rose-50 hover:text-rose-500 transition cursor-pointer"
+                  >
+                    <MapPin size={18} />
+                    {loc.name}
+                  </Link>
+                ))}
+              </div>
+            </div>
           </nav>
 
           {/* Desktop CTA */}
@@ -80,11 +106,30 @@ const Header = () => {
                 key={link.name}
                 to={link.href}
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="block text-stone-700 font-semibold hover:text-rose-400 transition-colors"
+                className="block text-stone-700 font-semibold hover:text-rose-400 transition-colors cursor-pointer"
               >
                 {link.name}
               </Link>
             ))}
+
+            {/* Mobile Locations */}
+            <div className="pt-3 border-t border-stone-200">
+              <p className="text-sm font-semibold text-stone-500 mb-2">
+                Locations
+              </p>
+
+              {locationLinks.map((loc) => (
+                <Link
+                  key={loc.name}
+                  to={loc.href}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="flex items-center gap-3 py-2 text-stone-700 hover:text-rose-400 transition cursor-pointer"
+                >
+                  <MapPin size={18} />
+                  {loc.name}
+                </Link>
+              ))}
+            </div>
 
             <Link
               to="/contact"
