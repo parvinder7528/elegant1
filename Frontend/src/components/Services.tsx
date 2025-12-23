@@ -1,6 +1,8 @@
 // import { Footer } from "react-day-picker";
 import Footer from "./Footer";
 import Header from "./Header";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faClock, faGift } from "@fortawesome/free-solid-svg-icons";
 
 const Services = () => {
   return (
@@ -26,7 +28,7 @@ const Services = () => {
         </p>
       </div>
     </section>
-    <section className="py-20 bg-gradient-to-b from-white to-rose-50/30">
+  <section className="py-20 bg-gradient-to-b from-white to-rose-50/30">
   <div className="max-w-7xl mx-auto px-6">
     <div className="text-center mb-16">
       <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-gray-800 mb-6">
@@ -39,6 +41,7 @@ const Services = () => {
       </p>
     </div>
     <div className="space-y-20">
+      {/* SPA & Aesthetics */}
       <div className="flex flex-col lg:flex-row items-center gap-12">
         <div className="w-full lg:w-1/2">
           <div className="relative overflow-hidden rounded-2xl shadow-2xl group">
@@ -90,12 +93,14 @@ const Services = () => {
               </span>
               <p className="text-2xl font-semibold text-gray-800">From $120</p>
             </div>
-            <button className="inline-flex items-center justify-center font-medium transition-all duration-300 whitespace-nowrap cursor-pointer bg-gradient-to-r from-primary-700 to-primary-800 text-white hover:from-primary-800 hover:to-primary-900 shadow-lg hover:shadow-xl px-8 py-4 text-lg rounded-lg transform hover:scale-105">
+            <button className="inline-flex items-center justify-center font-medium transition-all duration-300 whitespace-nowrap cursor-pointer bg-gradient-to-r from-[#5A3E36] to-[#7A574B] text-white hover:from-[#4E342A] hover:to-[#6B443A] shadow-lg hover:shadow-xl px-8 py-4 text-lg rounded-lg transform hover:scale-105">
               Book Spa &amp; Aesthetics
             </button>
           </div>
         </div>
       </div>
+
+      {/* Hair Beauty */}
       <div className="flex flex-col lg:flex-row-reverse items-center gap-12">
         <div className="w-full lg:w-1/2">
           <div className="relative overflow-hidden rounded-2xl shadow-2xl group">
@@ -147,12 +152,14 @@ const Services = () => {
               </span>
               <p className="text-2xl font-semibold text-gray-800">From $85</p>
             </div>
-            <button className="inline-flex items-center justify-center font-medium transition-all duration-300 whitespace-nowrap cursor-pointer bg-gradient-to-r from-primary-700 to-primary-800 text-white hover:from-primary-800 hover:to-primary-900 shadow-lg hover:shadow-xl px-8 py-4 text-lg rounded-lg transform hover:scale-105">
+            <button className="inline-flex items-center justify-center font-medium transition-all duration-300 whitespace-nowrap cursor-pointer bg-gradient-to-r from-[#5A3E36] to-[#7A574B] text-white hover:from-[#4E342A] hover:to-[#6B443A] shadow-lg hover:shadow-xl px-8 py-4 text-lg rounded-lg transform hover:scale-105">
               Book Hair Beauty
             </button>
           </div>
         </div>
       </div>
+
+      {/* Nails */}
       <div className="flex flex-col lg:flex-row items-center gap-12">
         <div className="w-full lg:w-1/2">
           <div className="relative overflow-hidden rounded-2xl shadow-2xl group">
@@ -204,12 +211,14 @@ const Services = () => {
               </span>
               <p className="text-2xl font-semibold text-gray-800">From $45</p>
             </div>
-            <button className="inline-flex items-center justify-center font-medium transition-all duration-300 whitespace-nowrap cursor-pointer bg-gradient-to-r from-primary-700 to-primary-800 text-white hover:from-primary-800 hover:to-primary-900 shadow-lg hover:shadow-xl px-8 py-4 text-lg rounded-lg transform hover:scale-105">
+            <button className="inline-flex items-center justify-center font-medium transition-all duration-300 whitespace-nowrap cursor-pointer bg-gradient-to-r from-[#5A3E36] to-[#7A574B] text-white hover:from-[#4E342A] hover:to-[#6B443A] shadow-lg hover:shadow-xl px-8 py-4 text-lg rounded-lg transform hover:scale-105">
               Book Nails
             </button>
           </div>
         </div>
       </div>
+
+      {/* Head Spa */}
       <div className="flex flex-col lg:flex-row-reverse items-center gap-12">
         <div className="w-full lg:w-1/2">
           <div className="relative overflow-hidden rounded-2xl shadow-2xl group">
@@ -261,12 +270,14 @@ const Services = () => {
               </span>
               <p className="text-2xl font-semibold text-gray-800">From $95</p>
             </div>
-            <button className="inline-flex items-center justify-center font-medium transition-all duration-300 whitespace-nowrap cursor-pointer bg-gradient-to-r from-primary-700 to-primary-800 text-white hover:from-primary-800 hover:to-primary-900 shadow-lg hover:shadow-xl px-8 py-4 text-lg rounded-lg transform hover:scale-105">
+            <button className="inline-flex items-center justify-center font-medium transition-all duration-300 whitespace-nowrap cursor-pointer bg-gradient-to-r from-[#5A3E36] to-[#7A574B] text-white hover:from-[#4E342A] hover:to-[#6B443A] shadow-lg hover:shadow-xl px-8 py-4 text-lg rounded-lg transform hover:scale-105">
               Book Head Spa
             </button>
           </div>
         </div>
       </div>
+
+      {/* Makeover */}
       <div className="flex flex-col lg:flex-row items-center gap-12">
         <div className="w-full lg:w-1/2">
           <div className="relative overflow-hidden rounded-2xl shadow-2xl group">
@@ -318,7 +329,7 @@ const Services = () => {
               </span>
               <p className="text-2xl font-semibold text-gray-800">From $150</p>
             </div>
-            <button className="inline-flex items-center justify-center font-medium transition-all duration-300 whitespace-nowrap cursor-pointer bg-gradient-to-r from-primary-700 to-primary-800 text-white hover:from-primary-800 hover:to-primary-900 shadow-lg hover:shadow-xl px-8 py-4 text-lg rounded-lg transform hover:scale-105">
+            <button className="inline-flex items-center justify-center font-medium transition-all duration-300 whitespace-nowrap cursor-pointer bg-gradient-to-r from-[#5A3E36] to-[#7A574B] text-white hover:from-[#4E342A] hover:to-[#6B443A] shadow-lg hover:shadow-xl px-8 py-4 text-lg rounded-lg transform hover:scale-105">
               Book Makeover
             </button>
           </div>
@@ -327,6 +338,7 @@ const Services = () => {
     </div>
   </div>
 </section>
+
 <section className="py-20 bg-white">
   <div className="max-w-7xl mx-auto px-6">
     <div className="text-center mb-16">
@@ -578,29 +590,30 @@ const Services = () => {
       </button>
     </div>
     <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-2xl mx-auto">
-      <div className="text-center">
-        <div className="w-12 h-12 bg-rose-100 rounded-full flex items-center justify-center mx-auto mb-4">
-          <i className="ri-time-line text-rose-500 text-xl" />
-        </div>
-        <h3 className="font-semibold text-gray-800 mb-2">
-          Flexible Scheduling
-        </h3>
-        <p className="text-gray-600 text-sm">
-          Book online 24/7 or call during business hours
-        </p>
-      </div>
-      <div className="text-center">
-        <div className="w-12 h-12 bg-rose-100 rounded-full flex items-center justify-center mx-auto mb-4">
-          <i className="ri-gift-line text-rose-500 text-xl" />
-        </div>
-        <h3 className="font-semibold text-gray-800 mb-2">
-          First Visit Special
-        </h3>
-        <p className="text-gray-600 text-sm">
-          Enjoy 15% off your first service with us
-        </p>
-      </div>
+  <div className="text-center">
+    <div className="w-12 h-12 bg-rose-100 rounded-full flex items-center justify-center mx-auto mb-4">
+      <FontAwesomeIcon icon={faClock} className="text-rose-500 text-xl" />
     </div>
+    <h3 className="font-semibold text-gray-800 mb-2">
+      Flexible Scheduling
+    </h3>
+    <p className="text-gray-600 text-sm">
+      Book online 24/7 or call during business hours
+    </p>
+  </div>
+  <div className="text-center">
+    <div className="w-12 h-12 bg-rose-100 rounded-full flex items-center justify-center mx-auto mb-4">
+      <FontAwesomeIcon icon={faGift} className="text-rose-500 text-xl" />
+    </div>
+    <h3 className="font-semibold text-gray-800 mb-2">
+      First Visit Special
+    </h3>
+    <p className="text-gray-600 text-sm">
+      Enjoy 15% off your first service with us
+    </p>
+  </div>
+</div>
+
   </div>
 </section>
 <Footer/>

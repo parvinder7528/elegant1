@@ -2,19 +2,20 @@ import { useState, useCallback, useEffect } from "react";
 import { Star, ChevronLeft, ChevronRight } from "lucide-react";
 import useEmblaCarousel from "embla-carousel-react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPaintbrush,faSpa } from "@fortawesome/free-solid-svg-icons";
+import { faPaintbrush, faSpa } from "@fortawesome/free-solid-svg-icons";
 import { faHeart, faStar } from "@fortawesome/free-regular-svg-icons";
 import { faPhone, faClock } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
-
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 // Using service images for gallery
 
 const Hero = () => {
- const navigate = useNavigate();
+  const navigate = useNavigate();
 
-  const handleclick= ()=>{
-    navigate("/contact")
-  }
+  const handleclick = () => {
+    navigate("/contact");
+  };
   const testimonials = [
     {
       name: "Sarah Mitchell",
@@ -216,92 +217,89 @@ const Hero = () => {
       </section>
 
       {/* experndec */}
-   <section className="py-24 bg-gradient-to-br from-rose-50 to-pink-50">
-  <div className="max-w-7xl mx-auto px-6">
-    <div className="text-center mb-16">
-      <h2 className="font-serif text-4xl md:text-5xl text-gray-800 mb-4">
-        The E'LAN Experience
-      </h2>
-      <div className="w-24 h-px bg-rose-400 mx-auto" />
-    </div>
+      <section className="py-24 bg-gradient-to-br from-rose-50 to-pink-50">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="font-serif text-4xl md:text-5xl text-gray-800 mb-4">
+              The E'LAN Experience
+            </h2>
+            <div className="w-24 h-px bg-rose-400 mx-auto" />
+          </div>
 
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {/* Luxury Care */}
+            <div className="bg-white rounded-lg p-8 text-center shadow-lg hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300 group">
+              <div className="w-16 h-16 bg-rose-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-rose-500 transition-colors duration-300">
+                <FontAwesomeIcon
+                  icon={faHeart}
+                  className="text-2xl text-rose-500 group-hover:text-white transition-colors duration-300"
+                />
+              </div>
+              <h3 className="font-serif text-xl text-gray-800 mb-4">
+                Luxury Care
+              </h3>
+              <p className="text-gray-600 leading-relaxed">
+                Indulgent treatments that nurture your natural beauty with the
+                finest techniques and premium products.
+              </p>
+            </div>
 
-      {/* Luxury Care */}
-      <div className="bg-white rounded-lg p-8 text-center shadow-lg hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300 group">
-        <div className="w-16 h-16 bg-rose-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-rose-500 transition-colors duration-300">
-          <FontAwesomeIcon
-            icon={faHeart}
-            className="text-2xl text-rose-500 group-hover:text-white transition-colors duration-300"
-          />
+            {/* Expert Artists */}
+            <div className="bg-white rounded-lg p-8 text-center shadow-lg hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300 group">
+              <div className="w-16 h-16 bg-rose-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-rose-500 transition-colors duration-300">
+                <FontAwesomeIcon
+                  icon={faPaintbrush}
+                  className="text-2xl text-rose-500 group-hover:text-white transition-colors duration-300"
+                />
+              </div>
+              <h3 className="font-serif text-xl text-gray-800 mb-4">
+                Expert Artists
+              </h3>
+              <p className="text-gray-600 leading-relaxed">
+                Our skilled professionals bring years of expertise and artistic
+                vision to every service.
+              </p>
+            </div>
+
+            {/* Premium Products */}
+            <div className="bg-white rounded-lg p-8 text-center shadow-lg hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300 group">
+              <div className="w-16 h-16 bg-rose-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-rose-500 transition-colors duration-300">
+                <FontAwesomeIcon
+                  icon={faStar}
+                  className="text-2xl text-rose-500 group-hover:text-white transition-colors duration-300"
+                />
+              </div>
+              <h3 className="font-serif text-xl text-gray-800 mb-4">
+                Premium Products
+              </h3>
+              <p className="text-gray-600 leading-relaxed">
+                We exclusively use high-end, carefully selected products that
+                deliver exceptional results.
+              </p>
+            </div>
+
+            {/* Calm Atmosphere */}
+            <div className="bg-white rounded-lg p-8 text-center shadow-lg hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300 group">
+              <div className="w-16 h-16 bg-rose-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-rose-500 transition-colors duration-300">
+                <FontAwesomeIcon
+                  icon={faSpa}
+                  className="text-2xl text-rose-500 group-hover:text-white transition-colors duration-300"
+                />
+              </div>
+              <h3 className="font-serif text-xl text-gray-800 mb-4">
+                Calm Atmosphere
+              </h3>
+              <p className="text-gray-600 leading-relaxed">
+                Step into our serene sanctuary designed to relax your mind and
+                rejuvenate your spirit.
+              </p>
+            </div>
+          </div>
         </div>
-        <h3 className="font-serif text-xl text-gray-800 mb-4">
-          Luxury Care
-        </h3>
-        <p className="text-gray-600 leading-relaxed">
-          Indulgent treatments that nurture your natural beauty with the
-          finest techniques and premium products.
-        </p>
-      </div>
-
-      {/* Expert Artists */}
-      <div className="bg-white rounded-lg p-8 text-center shadow-lg hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300 group">
-        <div className="w-16 h-16 bg-rose-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-rose-500 transition-colors duration-300">
-          <FontAwesomeIcon
-            icon={faPaintbrush}
-            className="text-2xl text-rose-500 group-hover:text-white transition-colors duration-300"
-          />
-        </div>
-        <h3 className="font-serif text-xl text-gray-800 mb-4">
-          Expert Artists
-        </h3>
-        <p className="text-gray-600 leading-relaxed">
-          Our skilled professionals bring years of expertise and artistic
-          vision to every service.
-        </p>
-      </div>
-
-      {/* Premium Products */}
-      <div className="bg-white rounded-lg p-8 text-center shadow-lg hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300 group">
-        <div className="w-16 h-16 bg-rose-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-rose-500 transition-colors duration-300">
-          <FontAwesomeIcon
-            icon={faStar}
-            className="text-2xl text-rose-500 group-hover:text-white transition-colors duration-300"
-          />
-        </div>
-        <h3 className="font-serif text-xl text-gray-800 mb-4">
-          Premium Products
-        </h3>
-        <p className="text-gray-600 leading-relaxed">
-          We exclusively use high-end, carefully selected products that
-          deliver exceptional results.
-        </p>
-      </div>
-
-      {/* Calm Atmosphere */}
-      <div className="bg-white rounded-lg p-8 text-center shadow-lg hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300 group">
-        <div className="w-16 h-16 bg-rose-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-rose-500 transition-colors duration-300">
-          <FontAwesomeIcon
-            icon={faSpa}
-            className="text-2xl text-rose-500 group-hover:text-white transition-colors duration-300"
-          />
-        </div>
-        <h3 className="font-serif text-xl text-gray-800 mb-4">
-          Calm Atmosphere
-        </h3>
-        <p className="text-gray-600 leading-relaxed">
-          Step into our serene sanctuary designed to relax your mind and
-          rejuvenate your spirit.
-        </p>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-
+      </section>
 
       {/* service  */}
+
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
@@ -314,7 +312,9 @@ const Hero = () => {
               each designed to enhance your natural elegance.
             </p>
           </div>
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+            {/* Spa & Aesthetics */}
             <div className="group cursor-pointer overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
               <div className="relative overflow-hidden">
                 <img
@@ -337,10 +337,12 @@ const Hero = () => {
                   className="text-rose-500 font-medium hover:text-rose-600 transition-colors inline-flex items-center"
                 >
                   Explore Service
-                  <i className="ri-arrow-right-line ml-2" />
+                  <FontAwesomeIcon icon={faArrowRight} className="ml-2" />
                 </a>
               </div>
             </div>
+
+            {/* Hair Beauty */}
             <div className="group cursor-pointer overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
               <div className="relative overflow-hidden">
                 <img
@@ -363,10 +365,12 @@ const Hero = () => {
                   className="text-rose-500 font-medium hover:text-rose-600 transition-colors inline-flex items-center"
                 >
                   Explore Service
-                  <i className="ri-arrow-right-line ml-2" />
+                  <FontAwesomeIcon icon={faArrowRight} className="ml-2" />
                 </a>
               </div>
             </div>
+
+            {/* Nails */}
             <div className="group cursor-pointer overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
               <div className="relative overflow-hidden">
                 <img
@@ -387,10 +391,12 @@ const Hero = () => {
                   className="text-rose-500 font-medium hover:text-rose-600 transition-colors inline-flex items-center"
                 >
                   Explore Service
-                  <i className="ri-arrow-right-line ml-2" />
+                  <FontAwesomeIcon icon={faArrowRight} className="ml-2" />
                 </a>
               </div>
             </div>
+
+            {/* Head Spa */}
             <div className="group cursor-pointer overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
               <div className="relative overflow-hidden">
                 <img
@@ -413,10 +419,12 @@ const Hero = () => {
                   className="text-rose-500 font-medium hover:text-rose-600 transition-colors inline-flex items-center"
                 >
                   Explore Service
-                  <i className="ri-arrow-right-line ml-2" />
+                  <FontAwesomeIcon icon={faArrowRight} className="ml-2" />
                 </a>
               </div>
             </div>
+
+            {/* Makeover */}
             <div className="group cursor-pointer overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
               <div className="relative overflow-hidden">
                 <img
@@ -439,11 +447,12 @@ const Hero = () => {
                   className="text-rose-500 font-medium hover:text-rose-600 transition-colors inline-flex items-center"
                 >
                   Explore Service
-                  <i className="ri-arrow-right-line ml-2" />
+                  <FontAwesomeIcon icon={faArrowRight} className="ml-2" />
                 </a>
               </div>
             </div>
           </div>
+
           <div style={{ textAlign: "center" }}>
             <a
               href="/services"
@@ -459,7 +468,7 @@ const Hero = () => {
                 whiteSpace: "nowrap",
                 borderRadius: "12px",
                 cursor: "pointer",
-                background: "linear-gradient(90deg, #6b3e2e, #4b2a1f)", // dark brown
+                background: "linear-gradient(90deg, #6b3e2e, #4b2a1f)",
                 boxShadow: "0 8px 24px rgba(75, 42, 31, 0.35)",
                 transition: "all 0.3s ease",
               }}
@@ -483,7 +492,10 @@ const Hero = () => {
       </section>
 
       {/* locations  */}
-      <section   id="location" className="py-24 bg-gradient-to-br from-rose-50 to-pink-50">
+      <section
+        id="location"
+        className="py-24 bg-gradient-to-br from-rose-50 to-pink-50"
+      >
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="font-serif text-4xl md:text-5xl text-gray-800 mb-4">
@@ -502,7 +514,7 @@ const Hero = () => {
                   <img
                     alt="E'LAN BEAUTY Regents Park"
                     className="w-full h-96 object-cover"
-                     src="https://static.readdy.ai/image/42cabbbc9f59707019254de677c0f30c/288ff7b101761e639351b80c505979b6.png"
+                    src="https://static.readdy.ai/image/42cabbbc9f59707019254de677c0f30c/288ff7b101761e639351b80c505979b6.png"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
                 </div>
@@ -891,43 +903,43 @@ const Hero = () => {
             </a>
 
             {/* Contact Us (unchanged) */}
-            <button onClick={handleclick} className="inline-flex items-center justify-center font-medium transition-all duration-300 whitespace-nowrap cursor-pointer bg-white text-primary-800 border-2 border-primary-800 hover:bg-primary-50 px-8 py-4 text-lg rounded-lg transform hover:scale-105">
+            <button
+              onClick={handleclick}
+              className="inline-flex items-center justify-center font-medium transition-all duration-300 whitespace-nowrap cursor-pointer bg-white text-primary-800 border-2 border-primary-800 hover:bg-primary-50 px-8 py-4 text-lg rounded-lg transform hover:scale-105"
+            >
               Contact Us
             </button>
           </div>
 
-        <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8 max-w-2xl mx-auto">
+          <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8 max-w-2xl mx-auto">
+            {/* Call Us */}
+            <div className="text-center">
+              <div className="w-12 h-12 bg-rose-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                <FontAwesomeIcon
+                  icon={faPhone}
+                  className="text-white text-xl"
+                />
+              </div>
+              <h3 className="font-semibold text-gray-800 mb-2">Call Us</h3>
+              <p className="text-gray-600">Ready to book? Give us a call</p>
+              <p className="text-rose-500 font-medium">(07) 3000 0000</p>
+            </div>
 
-  {/* Call Us */}
-  <div className="text-center">
-    <div className="w-12 h-12 bg-rose-500 rounded-full flex items-center justify-center mx-auto mb-4">
-      <FontAwesomeIcon
-        icon={faPhone}
-        className="text-white text-xl"
-      />
-    </div>
-    <h3 className="font-semibold text-gray-800 mb-2">Call Us</h3>
-    <p className="text-gray-600">Ready to book? Give us a call</p>
-    <p className="text-rose-500 font-medium">(07) 3000 0000</p>
-  </div>
-
-  {/* Opening Hours */}
-  <div className="text-center">
-    <div className="w-12 h-12 bg-rose-500 rounded-full flex items-center justify-center mx-auto mb-4">
-      <FontAwesomeIcon
-        icon={faClock}
-        className="text-white text-xl"
-      />
-    </div>
-    <h3 className="font-semibold text-gray-800 mb-2">
-      Opening Hours
-    </h3>
-    <p className="text-gray-600">Monday - Sunday</p>
-    <p className="text-rose-500 font-medium">9:00 AM - 8:00 PM</p>
-  </div>
-
-</div>
-
+            {/* Opening Hours */}
+            <div className="text-center">
+              <div className="w-12 h-12 bg-rose-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                <FontAwesomeIcon
+                  icon={faClock}
+                  className="text-white text-xl"
+                />
+              </div>
+              <h3 className="font-semibold text-gray-800 mb-2">
+                Opening Hours
+              </h3>
+              <p className="text-gray-600">Monday - Sunday</p>
+              <p className="text-rose-500 font-medium">9:00 AM - 8:00 PM</p>
+            </div>
+          </div>
         </div>
       </section>
     </>
