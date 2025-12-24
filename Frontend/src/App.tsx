@@ -13,7 +13,7 @@ import Gallery from "./components/Gallery";
 import Contact from "./components/Contact";
 import Regents from "./components/Regents";
 import Nundah from "./components/location/Nundah";
-
+import Headspa from "./components/booking/Headspa"
 /* 🔐 ADMIN */
 import AdminLogin from "./components/booking/AdminLogin";
 import DashboardLayout from "./components/admin/DashboardLayout";
@@ -41,7 +41,7 @@ const App = () => (
         <Route path="/contact" element={<Contact />} />
         <Route path="/locations/regents-park" element={<Regents />} />
         <Route path="/locations/nundah" element={<Nundah />} />
-
+        <Route path="/head-spa" element={<Headspa />} />
         {/* 🔐 ADMIN LOGIN (NO SIDEBAR) */}
         <Route path="/admin">
           <Route index element={<AdminLogin />} />

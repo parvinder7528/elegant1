@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Menu, X, MapPin } from "lucide-react";
 import { Link } from "react-router-dom";
+import { NavLink } from "@/components/NavLink"; // ✅ YOUR CUSTOM NAVLINK
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -19,6 +20,7 @@ const Header = () => {
     { name: "Services", href: "/services" },
     { name: "About", href: "/about" },
     { name: "Gallery", href: "/gallery" },
+    { name: "Head Spa", href: "/head-spa" },
     { name: "Contact", href: "/contact" },
   ];
 
@@ -26,6 +28,12 @@ const Header = () => {
     { name: "Regent Park", href: "/locations/regents-park" },
     { name: "Nundah", href: "/locations/nundah" },
   ];
+
+  const normalClass =
+    "text-stone-700 font-semibold transition-colors hover:text-rose-400";
+
+  const activeClass =
+    "text-rose-500 border-b-2 border-rose-500 pb-1";
 
   return (
     <header
@@ -38,40 +46,42 @@ const Header = () => {
           {/* Logo */}
           <Link
             to="/"
-            className="text-2xl font-serif font-bold text-stone-800 hover:text-rose-400 transition-colors"
+            className="text-2xl font-serif font-bold text-stone-800 hover:text-rose-400 transition"
           >
             E'LAN BEAUTY
           </Link>
 
-          {/* Desktop Nav */}
+          {/* ================= Desktop Navigation ================= */}
           <nav className="hidden md:flex items-center space-x-8">
             {navLinks.map((link) => (
-              <Link
+              <NavLink
                 key={link.name}
                 to={link.href}
-                className="text-stone-700 font-semibold hover:text-rose-400 transition-colors cursor-pointer"
+                end={link.href === "/"}
+                className={normalClass}
+                activeClassName={activeClass}
               >
                 {link.name}
-              </Link>
+              </NavLink>
             ))}
 
             {/* Location Dropdown */}
-            <div className="relative group cursor-pointer">
-              <span className="text-stone-700 font-semibold hover:text-rose-400 transition-colors">
+            <div className="relative group">
+              <span className="text-stone-700 font-semibold hover:text-rose-400 cursor-pointer">
                 Location
               </span>
 
-              {/* Dropdown */}
-              <div className="absolute left-0 mt-3 w-52 bg-white rounded-lg shadow-lg border border-stone-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+              <div className="absolute left-0 mt-3 w-52 bg-white rounded-lg shadow-lg border border-stone-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all">
                 {locationLinks.map((loc) => (
-                  <Link
+                  <NavLink
                     key={loc.name}
                     to={loc.href}
-                    className="flex items-center gap-3 px-4 py-3 text-stone-700 hover:bg-rose-50 hover:text-rose-500 transition cursor-pointer"
+                    className="flex items-center gap-3 px-4 py-3 text-stone-700 transition hover:bg-rose-50 hover:text-rose-500"
+                    activeClassName="bg-rose-50 text-rose-500 font-semibold"
                   >
                     <MapPin size={18} />
                     {loc.name}
-                  </Link>
+                  </NavLink>
                 ))}
               </div>
             </div>
@@ -79,37 +89,40 @@ const Header = () => {
 
           {/* Desktop CTA */}
           <div className="hidden md:block">
-            <Link
+            <NavLink
               to="/contact"
-              className="bg-rose-400 text-white px-6 py-2 rounded-lg font-semibold hover:bg-rose-500 transition-colors"
+              className="px-6 py-2 rounded-lg font-semibold bg-rose-400 text-white hover:bg-rose-500 transition"
+              activeClassName="bg-rose-500"
             >
               Book Now
-            </Link>
+            </NavLink>
           </div>
 
-          {/* Mobile Hamburger */}
+          {/* ================= Mobile Menu Button ================= */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden text-stone-700 hover:text-rose-400 transition-colors"
+            className="md:hidden text-stone-700 hover:text-rose-400"
           >
             {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
           </button>
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* ================= Mobile Menu ================= */}
       {isMobileMenuOpen && (
         <div className="md:hidden bg-white border-t border-stone-200">
           <div className="px-4 py-4 space-y-3">
             {navLinks.map((link) => (
-              <Link
+              <NavLink
                 key={link.name}
                 to={link.href}
+                end={link.href === "/"}
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="block text-stone-700 font-semibold hover:text-rose-400 transition-colors cursor-pointer"
+                className="block font-semibold text-stone-700 hover:text-rose-400"
+                activeClassName="text-rose-500"
               >
                 {link.name}
-              </Link>
+              </NavLink>
             ))}
 
             {/* Mobile Locations */}
@@ -119,25 +132,28 @@ const Header = () => {
               </p>
 
               {locationLinks.map((loc) => (
-                <Link
+                <NavLink
                   key={loc.name}
                   to={loc.href}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="flex items-center gap-3 py-2 text-stone-700 hover:text-rose-400 transition cursor-pointer"
+                  className="flex items-center gap-3 py-2 text-stone-700 hover:text-rose-400"
+                  activeClassName="text-rose-500 font-semibold"
                 >
                   <MapPin size={18} />
                   {loc.name}
-                </Link>
+                </NavLink>
               ))}
             </div>
 
-            <Link
+            {/* Mobile CTA */}
+            <NavLink
               to="/contact"
               onClick={() => setIsMobileMenuOpen(false)}
-              className="block text-center bg-rose-400 text-white py-2 rounded-lg font-semibold hover:bg-rose-500 transition-colors mt-4"
+              className="block text-center py-2 rounded-lg font-semibold bg-rose-400 text-white hover:bg-rose-500 mt-4"
+              activeClassName="bg-rose-500"
             >
               Book Now
-            </Link>
+            </NavLink>
           </div>
         </div>
       )}

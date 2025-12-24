@@ -13,6 +13,7 @@ const Footer = () => {
     { name: "About Us", href: "#about" },
     { name: "Gallery", href: "#gallery" },
     { name: "Reviews", href: "#testimonials" },
+    { name: "Head Spa", href: "/head-spa" },
     { name: "Contact", href: "#contact" },
   ];
 
@@ -21,11 +22,11 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           <div className="lg:col-span-2">
-           <img
-  alt="E'LAN BEAUTY"
-  className="h-[6rem] w-auto mb-4"
-  src="https://static.readdy.ai/image/42cabbbc9f59707019254de677c0f30c/6b4b2bb5c0d3709d1f9a587d46c4294a.png"
-/>
+            <img
+              alt="E'LAN BEAUTY"
+              className="h-[6rem] w-auto mb-4"
+              src="https://static.readdy.ai/image/42cabbbc9f59707019254de677c0f30c/6b4b2bb5c0d3709d1f9a587d46c4294a.png"
+            />
 
             <p className="text-gray-600 mb-6 max-w-md leading-relaxed">
               A sanctuary of beauty, artistry, and relaxation. Where elegance
@@ -72,6 +73,14 @@ const Footer = () => {
                   className="text-gray-600 hover:text-rose-500 transition-colors"
                 >
                   Services
+                </a>
+              </li>
+                            <li>
+                <a
+                  href="/head-spa"
+                  className="text-gray-600 hover:text-rose-500 transition-colors"
+                >
+                  Head Spa
                 </a>
               </li>
               <li>
