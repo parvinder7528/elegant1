@@ -6,7 +6,7 @@ import { Label } from "@/components/ui/label";
 import { Eye, EyeOff, Sparkles } from "lucide-react";
 import { toast } from "sonner";
 import API from "../../api/api"; // Axios instance
-import loginBg from "../../assets/about-atmosphere.jpg";
+import loginBg from "../../assets/download.jpeg";
 
 const AdminLogin = () => {
   const navigate = useNavigate();
