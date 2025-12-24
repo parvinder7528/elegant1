@@ -15,7 +15,7 @@ import Regents from "./components/Regents";
 import Nundah from "./components/location/Nundah";
 
 /* 🔐 ADMIN */
-import AdminLogin from "./pages/admin/AdminLogin";
+import AdminLogin from "./components/booking/AdminLogin";
 import DashboardLayout from "./components/admin/DashboardLayout";
 import Dashboard from "./pages/admin/Dashboard";
 import UsersPage from "./pages/admin/UsersPage";

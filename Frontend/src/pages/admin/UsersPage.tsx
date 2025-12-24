@@ -3,6 +3,7 @@ import API from "../../api/api";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import Swal from "sweetalert2";
 import {
   Table,
   TableBody,
@@ -41,17 +42,7 @@ const UsersPage = () => {
     }
   };
 
-    const handleDelete = async (userId: string) => {
-    // if (!confirm("Are you sure you want to delete this user?")) return;
-    try {
-      await API.delete(`/api/user/${userId}`);
-      setUsers(users.filter((u: any) => u._id !== userId));
-      alert("User deleted successfully");
-    } catch (error) {
-      console.error("Delete failed:", error);
-      alert("Failed to delete user");
-    }
-  };
+  
   useEffect(() => {
     const fetchUsers = async () => {
       try {
@@ -89,21 +80,47 @@ const UsersPage = () => {
       alert("Failed to fetch bookings");
     }
   };
-  const openProfile = async (user: any) => {
-    setLoadingProfile(true);
+const handleDelete = async (userId: string) => {
+  const result = await Swal.fire({
+    title: "Are you sure?",
+    text: "You won't be able to revert this!",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#d33",
+    cancelButtonColor: "#3085d6",
+    confirmButtonText: "Yes, delete it!",
+  });
+
+  if (result.isConfirmed) {
     try {
-      const response = await API.get(`/api/user/${user._id}`);
-      if (response.data.success) {
-        setSelectedUser(response.data.data);
-        setIsDialogOpen(true);
-      }
+      await API.delete(`/api/user`, { params: { userId } });
+      setUsers(users.filter((u: any) => u._id !== userId));
+      Swal.fire("Deleted!", "User has been deleted.", "success");
     } catch (error) {
-      console.error("Failed to fetch user profile:", error);
-      // alert("Failed to load profile");
-    } finally {
-      setLoadingProfile(false);
+      console.error("Delete failed:", error);
+      Swal.fire("Error", "Failed to delete user.", "error");
     }
-  };
+  }
+};
+
+
+const openProfile = async (user: any) => {
+  setLoadingProfile(true);
+  try {
+    // Pass userId as query param
+    const response = await API.get(`/api/getUserById`, { params: { userId: user._id } });
+    if (response.data.success) {
+      setSelectedUser(response.data.data);
+      setIsDialogOpen(true);
+    }
+  } catch (error) {
+    console.error("Failed to fetch user profile:", error);
+    alert("Failed to load profile");
+  } finally {
+    setLoadingProfile(false);
+  }
+};
+
 
 
   return (
