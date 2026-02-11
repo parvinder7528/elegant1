@@ -11,7 +11,7 @@ import {
 import { useNavigate } from 'react-router-dom';
 
 const Headspa = () => {
-      const [activeTab, setActiveTab] = useState("EXPERIENCE");
+      const [activeTab, setActiveTab] = useState("CLASSIC");
 
       const navigate = useNavigate();
     
@@ -285,25 +285,25 @@ const Headspa = () => {
         <div className="flex justify-center mb-12">
           <div className="bg-gray-100 rounded-lg p-2 flex gap-2">
             <button
-              onClick={() => setActiveTab("EXPERIENCE")}
+              onClick={() => setActiveTab("CLASSIC")}
               className={`px-8 py-3 rounded-lg font-medium transition-all duration-300
-                ${activeTab === "EXPERIENCE"
+                ${activeTab === "CLASSIC"
                   ? "bg-rose-500 text-white shadow-lg"
                   : "text-gray-700 hover:bg-rose-100 hover:text-rose-600"
                 }`}
             >
-              EXPERIENCE
+              CLASSIC
             </button>
 
             <button
-              onClick={() => setActiveTab("SUPREME")}
+              onClick={() => setActiveTab("ADVANCE")}
               className={`px-8 py-3 rounded-lg font-medium transition-all duration-300
-                ${activeTab === "SUPREME"
+                ${activeTab === "ADVANCE"
                   ? "bg-rose-500 text-white shadow-lg"
                   : "text-gray-700 hover:bg-rose-100 hover:text-rose-600"
                 }`}
             >
-              SUPREME
+              ADVANCE
             </button>
           </div>
         </div>
@@ -312,16 +312,16 @@ const Headspa = () => {
         <div className="max-w-4xl mx-auto">
 
           {/* EXPERIENCE PACKAGE */}
-          {activeTab === "EXPERIENCE" && (
+          {activeTab === "CLASSIC" && (
             <div className="bg-gradient-to-br from-rose-50 to-pink-50 rounded-2xl p-12 shadow-xl">
               <div className="text-center mb-12">
                 <h3 className="font-serif text-4xl md:text-5xl text-gray-800 mb-4">
-                  EXPERIENCE
+                 CLASSIC
                 </h3>
 
                 <div className="flex items-center justify-center gap-8 mb-6">
                   <div className="text-gray-600 text-lg">60+ Minutes</div>
-                  <div className="text-4xl font-bold text-rose-600">$199</div>
+                  <div className="text-4xl font-bold text-rose-600">$120</div>
                 </div>
 
                 <p className="text-xl text-gray-600 italic max-w-2xl mx-auto">
@@ -332,15 +332,13 @@ const Headspa = () => {
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
                 {[
-                  "Personalized scalp analysis & consultation",
-                  "Deep cleansing scalp detox",
-                  "Therapeutic head & neck massage",
-                  "Premium botanical hair treatment",
-                  "Relaxing steam therapy",
-                  "Nourishing scalp mask",
-                  "Luxury hair wash",
-                  "Revitalizing scalp tonic",
-                  "Finishing blow-dry & styling",
+                  "Washing your face and applying eye herbs to relieve stress and treat under-eye dark circles.",
+                  "Massage and acupressure to relax the head.",
+                  "Neck, shoulder, and nape massage.",
+                  "Washing your hair twice.",
+                  "Hair care and head massage.",
+                  "Hair drying and hair serum application.",
+           
                 ].map((item, i) => (
                   <div key={i} className="flex items-start">
                     <span className="text-rose-500 mr-3 mt-1">✔</span>
@@ -395,16 +393,16 @@ const Headspa = () => {
           )}
 
           {/* SUPREME PACKAGE */}
-          {activeTab === "SUPREME" && (
+          {activeTab === "ADVANCE" && (
             <div className="bg-gradient-to-br from-rose-50 to-pink-50 rounded-2xl p-12 shadow-xl">
               <div className="text-center mb-12">
                 <h3 className="font-serif text-4xl md:text-5xl text-gray-800 mb-4">
-                  SUPREME
+                  ADVANCE
                 </h3>
 
                 <div className="flex items-center justify-center gap-8 mb-6">
                   <div className="text-gray-600 text-lg">90+ Minutes</div>
-                  <div className="text-4xl font-bold text-rose-600">$299</div>
+                  <div className="text-4xl font-bold text-rose-600">$150</div>
                 </div>
 
                 <p className="text-xl text-gray-600 italic max-w-2xl mx-auto">
@@ -415,16 +413,13 @@ const Headspa = () => {
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
                 {[
-                  "All EXPERIENCE benefits included",
-                  "Extended meridian head massage",
-                  "Facial cleansing & lifting massage",
-                  "Premium massage cream therapy",
-                  "Moisturizing face mask treatment",
-                  "Hand, neck & shoulder massage",
-                  "Aromatherapy enhancement",
-                  "Pressure point therapy",
-                  "Luxury scalp & hair serum",
-                  "Complimentary herbal tea service",
+                  "Includes all features of the Shampoo Relaxation Pack, plus:",
+                  "Meridian clearance in the head, head massage, and relaxation acupressure.",
+                  "Application of eye herbs to relieve stress and treat dark circles.",
+                  "Facial cleansing and face lifting massage with our exclusive massage cream ",
+                  "Moisturizing face mask.",
+                  "Hand, neck, and shoulder massage.",
+               
                 ].map((item, i) => (
                   <div key={i} className="flex items-start">
                     <span className="text-rose-500 mr-3 mt-1">✔</span>

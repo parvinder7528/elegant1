@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPaintbrush, faSpa } from "@fortawesome/free-solid-svg-icons";
 import { faHeart, faStar } from "@fortawesome/free-regular-svg-icons";
 import { faPhone, faClock } from "@fortawesome/free-solid-svg-icons";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, NavLink } from "react-router-dom";
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 // Using service images for gallery
@@ -67,7 +67,11 @@ const Hero = () => {
     (index: number) => emblaApi?.scrollTo(index),
     [emblaApi]
   );
-
+  const countryLinks = [
+    { name: "Australia", flag: "🇦🇺", href: "/" },
+    { name: "Vietnam", flag: "🇻🇳", href: "/" },
+    { name: "India", flag: "🇮🇳", href: "/" },
+  ];
   const onSelect = useCallback(() => {
     if (!emblaApi) return;
     setSelectedIndex(emblaApi.selectedScrollSnap());
@@ -93,6 +97,24 @@ const Hero = () => {
           <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl font-light mb-6 leading-tight">
             E'LAN BEAUTY
           </h1>
+ <div className="flex justify-center gap-6 mb-6 flex-wrap">
+            {countryLinks.map((country) => (
+              <NavLink
+                key={country.name}
+                to={country.href}
+                className={({ isActive }) =>
+                  `flex items-center gap-2 px-4 py-2 rounded-full border transition ${
+                    isActive
+                      ? "bg-white text-rose-500"
+                      : "border-white text-white hover:bg-white hover:text-rose-500"
+                  }`
+                }
+              >
+                <span className="text-lg">{country.flag}</span>
+                {country.name}
+              </NavLink>
+            ))}
+          </div>
           <div className="w-24 h-px bg-rose-400 mx-auto mb-6" />
           <h2 className="text-xl md:text-2xl lg:text-3xl font-light mb-4 tracking-wide">
             Where Elegance Meets Excellence
@@ -354,7 +376,7 @@ const Hero = () => {
               </div>
               <div className="p-6 bg-white">
                 <h3 className="font-serif text-xl text-gray-800 mb-3">
-                  Hair Beauty
+                  Hair Spa
                 </h3>
                 <p className="text-gray-600 mb-4 leading-relaxed">
                   Transformative styling and treatments that celebrate your
@@ -424,33 +446,7 @@ const Hero = () => {
               </div>
             </div>
 
-            {/* Makeover */}
-            <div className="group cursor-pointer overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
-              <div className="relative overflow-hidden">
-                <img
-                  alt="Makeover"
-                  className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-110"
-                  src="https://readdy.ai/api/search-image?query=professional%20makeup%20artist%20applying%20elegant%20makeup%2C%20luxury%20beauty%20makeover%20session%2C%20sophisticated%20makeup%20studio%20with%20premium%20cosmetics%2C%20glamorous%20beauty%20transformation&width=600&height=400&seq=service5&orientation=landscape"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              </div>
-              <div className="p-6 bg-white">
-                <h3 className="font-serif text-xl text-gray-800 mb-3">
-                  Makeover
-                </h3>
-                <p className="text-gray-600 mb-4 leading-relaxed">
-                  Complete beauty transformations that reveal your most
-                  confident self.
-                </p>
-                <a
-                  href="/services"
-                  className="text-rose-500 font-medium hover:text-rose-600 transition-colors inline-flex items-center"
-                >
-                  Explore Service
-                  <FontAwesomeIcon icon={faArrowRight} className="ml-2" />
-                </a>
-              </div>
-            </div>
+       
           </div>
 
           <div style={{ textAlign: "center" }}>

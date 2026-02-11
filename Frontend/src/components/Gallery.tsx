@@ -2,29 +2,88 @@ import { useState } from "react";
 import Header from "./Header";
 import Footer from "./Footer";
 
-// Images
-import serviceSpa from "@/assets/service-spa.jpg";
-import serviceHair from "@/assets/service-hair.jpg";
-import serviceNails from "@/assets/service-nails.jpg";
-import serviceHeadSpa from "@/assets/service-headspa.jpg";
-import serviceMakeover from "@/assets/service-makeover.jpg";
-import heroSalon from "@/assets/hero-salon.jpg";
-import aboutAtmosphere from "@/assets/about-atmosphere.jpg";
+/* ================== IMPORT ALL IMAGES ================== */
+
+// Exterior
+import exterior1 from "@/assets/exterior1.jpg";
+import exterior2 from "@/assets/exterior2.jpg";
+import exterior3 from "@/assets/exterior3.jpg";
+import exterior4 from "@/assets/exterior4.jpg";
+import exterior5 from "@/assets/exterior5.jpg";
+import exterior6 from "@/assets/exterior6.jpg";
+import exterior7 from "@/assets/exterior7.jpg";
+import exterior8 from "@/assets/exterior8.jpg";
+
+// Interior
+import interior from "@/assets/interior.jpg";
+import interior1 from "@/assets/interior1.jpg";
+import interior3 from "@/assets/interior3.jpg";
+import interior4 from "@/assets/interior4.jpg";
+import interior5 from "@/assets/interior5.jpg";
+
+// Location
+import location1 from "@/assets/location-1.jpg";
 import location2 from "@/assets/location-2.jpg";
 
-const galleryImages = [
-  { src: heroSalon, title: "Luxury Salon Interior", desc: "Elegant premium interiors", category: "Interior" },
-  { src: aboutAtmosphere, title: "Premium Products", desc: "Top quality beauty essentials", category: "Interior" },
-  { src: location2, title: "Salon Atmosphere", desc: "Relaxing luxury environment", category: "Interior" },
+// Makeup
+import makeup from "@/assets/Makeup.jpg";
+import makeup1 from "@/assets/Makeup1.jpg";
 
-  { src: serviceHair, title: "Hair Styling", desc: "Professional hair treatments", category: "Hair" },
-  { src: serviceMakeover, title: "Makeup Artistry", desc: "Expert makeover sessions", category: "Makeup" },
-  { src: serviceNails, title: "Nail Art", desc: "Creative nail designs", category: "Nails" },
-  { src: serviceSpa, title: "Spa Therapy", desc: "Relaxing spa treatments", category: "Spa" },
-  { src: serviceHeadSpa, title: "Head Spa", desc: "Rejuvenating scalp care", category: "Head Spa" },
+// Nails
+import nails from "@/assets/Nails.jpg";
+import nails1 from "@/assets/Nails1.jpg";
+import nails2 from "@/assets/Nails2.jpg";
+import nails3 from "@/assets/Nails3.jpg";
+import nails5 from "@/assets/Nails5.jpg";
+
+// Hero
+import heroSalon from "@/assets/hero-salon.jpg";
+
+/* ================== GALLERY DATA ================== */
+
+const galleryImages = [
+  // Interior
+  { src: heroSalon, title: "Luxury Salon Interior", desc: "Elegant premium salon interiors with modern design.", category: "Interior" },
+  { src: interior, title: "Reception Area", desc: "Warm and welcoming front desk area.", category: "Interior" },
+  { src: interior1, title: "Styling Zone", desc: "Professional styling chairs and mirrors.", category: "Interior" },
+  { src: interior3, title: "Relaxation Corner", desc: "Comfortable seating with luxury feel.", category: "Interior" },
+  { src: interior4, title: "Premium Setup", desc: "High-end beauty service stations.", category: "Interior" },
+  { src: interior5, title: "Modern Decor", desc: "Minimalistic and elegant interior design.", category: "Interior" },
+
+  // Exterior
+  { src: exterior1, title: "Salon Entrance", desc: "Beautifully designed salon entrance.", category: "Exterior" },
+  { src: exterior2, title: "Evening View", desc: "Salon glowing beautifully at night.", category: "Exterior" },
+  { src: exterior3, title: "Front Display", desc: "Stylish glass and branding display.", category: "Exterior" },
+  { src: exterior4, title: "Street View", desc: "Prime location with attractive front.", category: "Exterior" },
+  { src: exterior5, title: "Premium Exterior", desc: "Luxury exterior architecture.", category: "Exterior" },
+  { src: exterior6, title: "Side View", desc: "Clean and modern side elevation.", category: "Exterior" },
+  { src: exterior7, title: "Night Lights", desc: "Beautiful lighting enhances look.", category: "Exterior" },
+  { src: exterior8, title: "Grand Opening", desc: "Celebration of salon launch day.", category: "Exterior" },
+
+  // Makeup
+  { src: makeup, title: "Bridal Makeup", desc: "Elegant bridal transformation.", category: "Makeup" },
+  { src: makeup1, title: "Party Look", desc: "Glamorous party-ready makeup style.", category: "Makeup" },
+
+  // Nails
+  { src: nails, title: "Classic Nail Art", desc: "Simple and classy nail designs.", category: "Nails" },
+  { src: nails1, title: "French Nails", desc: "Elegant french manicure style.", category: "Nails" },
+  { src: nails2, title: "Creative Designs", desc: "Unique and artistic nail patterns.", category: "Nails" },
+  { src: nails3, title: "Gel Extensions", desc: "Long-lasting gel nail extensions.", category: "Nails" },
+  { src: nails5, title: "Luxury Finish", desc: "Premium glossy nail finishing.", category: "Nails" },
+
+
 ];
 
-const categories = ["All", "Interior", "Hair", "Nails", "Spa", "Head Spa", "Makeup"];
+const categories = [
+  "All",
+  "Interior",
+  "Exterior",
+  "Makeup",
+  "Nails",
+
+];
+
+/* ================== COMPONENT ================== */
 
 const Gallery = () => {
   const [activeCategory, setActiveCategory] = useState("All");
@@ -32,7 +91,7 @@ const Gallery = () => {
   const filteredImages =
     activeCategory === "All"
       ? galleryImages
-      : galleryImages.filter(img => img.category === activeCategory);
+      : galleryImages.filter((img) => img.category === activeCategory);
 
   return (
     <>
@@ -43,9 +102,9 @@ const Gallery = () => {
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
-      backgroundImage:
-        'url("https://static.readdy.ai/image/42cabbbc9f59707019254de677c0f30c/7f7f216caf7709e4eb4d641a3290384b.png")'
-    }}
+            backgroundImage:
+              'url("https://static.readdy.ai/image/42cabbbc9f59707019254de677c0f30c/7f7f216caf7709e4eb4d641a3290384b.png")',
+          }}
         />
         <div className="absolute inset-0 bg-black/40" />
         <div className="relative z-10 text-center text-white">
@@ -54,27 +113,26 @@ const Gallery = () => {
         </div>
       </section>
 
-      {/* FILTER BUTTONS */}
+      {/* FILTER */}
       <section className="py-12 bg-white">
         <div className="max-w-6xl mx-auto px-4">
           <div className="flex flex-wrap justify-center gap-4 mb-12">
-            {categories.map(category => (
+            {categories.map((category) => (
               <button
                 key={category}
                 onClick={() => setActiveCategory(category)}
-                className={`px-6 py-3 rounded-full font-medium transition-all duration-300
-                  ${
-                    activeCategory === category
-                      ? "bg-rose-400 text-white shadow-lg"
-                      : "bg-stone-100 text-stone-700 hover:bg-rose-100 hover:text-rose-600"
-                  }`}
+                className={`px-6 py-3 rounded-full font-medium transition-all duration-300 ${
+                  activeCategory === category
+                    ? "bg-rose-400 text-white shadow-lg"
+                    : "bg-stone-100 text-stone-700 hover:bg-rose-100 hover:text-rose-600"
+                }`}
               >
                 {category}
               </button>
             ))}
           </div>
 
-          {/* GALLERY GRID */}
+          {/* GRID */}
           <div className="columns-1 sm:columns-2 lg:columns-3 xl:columns-4 gap-6 space-y-6">
             {filteredImages.map((img, index) => (
               <div
@@ -105,28 +163,10 @@ const Gallery = () => {
             ))}
 
             {filteredImages.length === 0 && (
-              <p className="text-center text-stone-500 col-span-full">
+              <p className="text-center text-stone-500">
                 No images found for this category
               </p>
             )}
-          </div>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="py-16 bg-gradient-to-r from-rose-50 to-stone-50">
-        <div className="max-w-4xl mx-auto text-center px-4">
-          <h2 className="text-3xl font-serif mb-4">Ready to Experience E'LAN BEAUTY?</h2>
-          <p className="text-stone-600 mb-8">
-            Book your appointment today and let our experts take care of you.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="px-8 py-4 bg-rose-400 text-white rounded-lg hover:bg-rose-500 transition">
-              Book Your Appointment
-            </button>
-            <button className="px-8 py-4 border-2 border-rose-400 text-rose-400 rounded-lg hover:bg-rose-400 hover:text-white transition">
-              View Our Services
-            </button>
           </div>
         </div>
       </section>

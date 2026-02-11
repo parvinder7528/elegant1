@@ -610,12 +610,12 @@ export default function SalonServices() {
                   <div className="flex justify-between items-start mb-6">
                     <div>
                       <h3 className="font-serif text-xl md:text-2xl text-gray-800 mb-2">
-                        Full Set Gel Builder with Polish
+                        GEL BUILDER EXTENSION WITH POLISH
                       </h3>
                     </div>
                     <div className="text-right">
                       <div className="text-2xl md:text-3xl font-bold text-rose-600">
-                        $70
+                        $75
                       </div>
                     </div>
                   </div>
@@ -623,13 +623,13 @@ export default function SalonServices() {
                     <div className="flex items-start">
                       <i className="ri-check-line text-rose-500 mr-3 mt-1 flex-shrink-0" />
                       <span className="text-gray-700">
-                        Professional gel builder application
+                        Customized gel builder extension application
                       </span>
                     </div>
                     <div className="flex items-start">
                       <i className="ri-check-line text-rose-500 mr-3 mt-1 flex-shrink-0" />
                       <span className="text-gray-700">
-                        Custom length and shape
+                        Expert shaping and length customization
                       </span>
                     </div>
                     <div className="flex items-start">
@@ -640,7 +640,9 @@ export default function SalonServices() {
                     </div>
                     <div className="flex items-start">
                       <i className="ri-check-line text-rose-500 mr-3 mt-1 flex-shrink-0" />
-                      <span className="text-gray-700">Polish included</span>
+                      <span className="text-gray-700">
+                        Choice of polish color
+                      </span>
                     </div>
                   </div>
                   <div className="mt-8">
@@ -656,9 +658,10 @@ export default function SalonServices() {
                         Overlay on Natural Nails with Polish
                       </h3>
                     </div>
+
                     <div className="text-right">
                       <div className="text-2xl md:text-3xl font-bold text-rose-600">
-                        $65
+                        $70
                       </div>
                     </div>
                   </div>
@@ -666,13 +669,13 @@ export default function SalonServices() {
                     <div className="flex items-start">
                       <i className="ri-check-line text-rose-500 mr-3 mt-1 flex-shrink-0" />
                       <span className="text-gray-700">
-                        Gel builder overlay for strengthening
+                        Overlay application on natural nails
                       </span>
                     </div>
                     <div className="flex items-start">
                       <i className="ri-check-line text-rose-500 mr-3 mt-1 flex-shrink-0" />
                       <span className="text-gray-700">
-                        Expert shaping and finishing
+                        Expert shaping and polishing
                       </span>
                     </div>
                   </div>
@@ -689,12 +692,13 @@ export default function SalonServices() {
                         Refill
                       </h3>
                       <p className="text-sm text-gray-500 italic">
-                        Price may vary based on growth
+                        MAINTAIN THE BEAUTY OF YOUR GEL BUILDER NAILS WITH OUR
+                        REFILL SERVICE:
                       </p>
                     </div>
                     <div className="text-right">
                       <div className="text-2xl md:text-3xl font-bold text-rose-600">
-                        $55
+                        $60
                       </div>
                     </div>
                   </div>
@@ -702,7 +706,7 @@ export default function SalonServices() {
                     <div className="flex items-start">
                       <i className="ri-check-line text-rose-500 mr-3 mt-1 flex-shrink-0" />
                       <span className="text-gray-700">
-                        Re-balancing gel builder
+                        Re-balancing of gel builder overlay
                       </span>
                     </div>
                     <div className="flex items-start">
@@ -792,7 +796,7 @@ export default function SalonServices() {
                   <div className="flex justify-between items-start mb-6">
                     <div>
                       <h3 className="font-serif text-xl md:text-2xl text-gray-800 mb-2">
-                        Full Set SNS Powder with Polish
+                        FULL SET EXTENSION
                       </h3>
                     </div>
                     <div className="text-right">
@@ -805,25 +809,13 @@ export default function SalonServices() {
                     <div className="flex items-start">
                       <i className="ri-check-line text-rose-500 mr-3 mt-1 flex-shrink-0" />
                       <span className="text-gray-700">
-                        SNS powder dip application
+                        ACHIEVE FLAWLESS NAILS WITH
                       </span>
                     </div>
                     <div className="flex items-start">
                       <i className="ri-check-line text-rose-500 mr-3 mt-1 flex-shrink-0" />
                       <span className="text-gray-700">
-                        Vitamin-enriched formula
-                      </span>
-                    </div>
-                    <div className="flex items-start">
-                      <i className="ri-check-line text-rose-500 mr-3 mt-1 flex-shrink-0" />
-                      <span className="text-gray-700">
-                        Custom shaping and length
-                      </span>
-                    </div>
-                    <div className="flex items-start">
-                      <i className="ri-check-line text-rose-500 mr-3 mt-1 flex-shrink-0" />
-                      <span className="text-gray-700">
-                        Wide range of colors
+                        OUR FULL SET OF SNS POWDER EXTENSIONS.
                       </span>
                     </div>
                   </div>
@@ -837,12 +829,12 @@ export default function SalonServices() {
                   <div className="flex justify-between items-start mb-6">
                     <div>
                       <h3 className="font-serif text-xl md:text-2xl text-gray-800 mb-2">
-                        Overlay on Natural Nails
+                        OVERLAY ON NATURAL NAILS WITH POLISH
                       </h3>
                     </div>
                     <div className="text-right">
                       <div className="text-2xl md:text-3xl font-bold text-rose-600">
-                        $60
+                        $70
                       </div>
                     </div>
                   </div>
@@ -850,47 +842,8 @@ export default function SalonServices() {
                     <div className="flex items-start">
                       <i className="ri-check-line text-rose-500 mr-3 mt-1 flex-shrink-0" />
                       <span className="text-gray-700">
-                        SNS powder overlay for strength
-                      </span>
-                    </div>
-                    <div className="flex items-start">
-                      <i className="ri-check-line text-rose-500 mr-3 mt-1 flex-shrink-0" />
-                      <span className="text-gray-700">
-                        Natural nail protection
-                      </span>
-                    </div>
-                  </div>
-                  <div className="mt-8">
-                    <button className="w-full bg-rose-500 text-white py-3 rounded-lg font-medium hover:bg-rose-600 transition-colors duration-300">
-                      Book This Service
-                    </button>
-                  </div>
-                </div>
-                <div className="bg-gradient-to-br from-rose-50 to-pink-50 rounded-lg p-8 shadow-lg hover:shadow-xl transition-all duration-300">
-                  <div className="flex justify-between items-start mb-6">
-                    <div>
-                      <h3 className="font-serif text-xl md:text-2xl text-gray-800 mb-2">
-                        Refill
-                      </h3>
-                      <p className="text-sm text-gray-500 italic">
-                        Price may vary based on growth
-                      </p>
-                    </div>
-                    <div className="text-right">
-                      <div className="text-2xl md:text-3xl font-bold text-rose-600">
-                        $50
-                      </div>
-                    </div>
-                  </div>
-                  <div className="space-y-3">
-                    <div className="flex items-start">
-                      <i className="ri-check-line text-rose-500 mr-3 mt-1 flex-shrink-0" />
-                      <span className="text-gray-700">SNS powder refill</span>
-                    </div>
-                    <div className="flex items-start">
-                      <i className="ri-check-line text-rose-500 mr-3 mt-1 flex-shrink-0" />
-                      <span className="text-gray-700">
-                        Shaping and finishing
+                        ENHANCE THE NATURAL BEAUTY OF YOUR NAILS WITH AN ACRYLIC
+                        OVERLAY, INCLUDING POLISH:
                       </span>
                     </div>
                   </div>
@@ -1099,7 +1052,7 @@ export default function SalonServices() {
             </div>
           )}
 
-         {activeCategory === 'nail-art' && (
+          {activeCategory === "nail-art" && (
             <div>
               <div className="text-center mb-12">
                 <h2 className="font-serif text-3xl md:text-4xl text-gray-800 mb-4">
@@ -1154,7 +1107,7 @@ export default function SalonServices() {
             </div>
           )}
 
-         {activeCategory === 'hair-spa' && (
+          {activeCategory === "hair-spa" && (
             <div>
               <div className="text-center mb-12">
                 <h2 className="font-serif text-3xl md:text-4xl text-gray-800 mb-4">
@@ -1162,7 +1115,8 @@ export default function SalonServices() {
                 </h2>
                 <div className="w-16 h-px bg-rose-400 mx-auto mb-6" />
                 <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                  Relaxing and rejuvenating hair spa treatments for ultimate wellness
+                  Relaxing and rejuvenating hair spa treatments for ultimate
+                  wellness
                 </p>
               </div>
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
@@ -1187,35 +1141,38 @@ export default function SalonServices() {
                     <div className="flex items-start">
                       <i className="ri-check-line text-rose-500 mr-3 mt-1 flex-shrink-0" />
                       <span className="text-gray-700">
-                        Herbal face wash &amp; eye care
+                        Washing your face and applying eye herbs to relieve stress and
+treat under-eye dark circles.
                       </span>
                     </div>
                     <div className="flex items-start">
                       <i className="ri-check-line text-rose-500 mr-3 mt-1 flex-shrink-0" />
                       <span className="text-gray-700">
-                        Head relaxation massage
+                        Massage and acupressure to relax the head.
                       </span>
                     </div>
                     <div className="flex items-start">
                       <i className="ri-check-line text-rose-500 mr-3 mt-1 flex-shrink-0" />
                       <span className="text-gray-700">
-                        Neck, shoulder &amp; nape massage
-                      </span>
-                    </div>
-                    <div className="flex items-start">
-                      <i className="ri-check-line text-rose-500 mr-3 mt-1 flex-shrink-0" />
-                      <span className="text-gray-700">Hair wash (twice)</span>
-                    </div>
-                    <div className="flex items-start">
-                      <i className="ri-check-line text-rose-500 mr-3 mt-1 flex-shrink-0" />
-                      <span className="text-gray-700">
-                        Hair spa cream application
+                        Neck, shoulder, and nape massage
                       </span>
                     </div>
                     <div className="flex items-start">
                       <i className="ri-check-line text-rose-500 mr-3 mt-1 flex-shrink-0" />
                       <span className="text-gray-700">
-                        Hair drying &amp; serum application
+                        Washing your hair twice.
+                      </span>
+                    </div>
+                    <div className="flex items-start">
+                      <i className="ri-check-line text-rose-500 mr-3 mt-1 flex-shrink-0" />
+                      <span className="text-gray-700">
+                        Hair care and head massage.
+                      </span>
+                    </div>
+                    <div className="flex items-start">
+                      <i className="ri-check-line text-rose-500 mr-3 mt-1 flex-shrink-0" />
+                      <span className="text-gray-700">
+                        Hair drying and hair serum application.
                       </span>
                     </div>
                   </div>
@@ -1246,37 +1203,38 @@ export default function SalonServices() {
                     <div className="flex items-start">
                       <i className="ri-check-line text-rose-500 mr-3 mt-1 flex-shrink-0" />
                       <span className="text-gray-700">
-                        Includes all Classic Hair Spa features
+                        Includes all features of the Shampoo Relaxation Pack, plus:
                       </span>
                     </div>
                     <div className="flex items-start">
                       <i className="ri-check-line text-rose-500 mr-3 mt-1 flex-shrink-0" />
                       <span className="text-gray-700">
-                        Meridian head massage
+                         Meridian clearance in the head, head massage, and
+relaxation acupressure.
                       </span>
                     </div>
                     <div className="flex items-start">
                       <i className="ri-check-line text-rose-500 mr-3 mt-1 flex-shrink-0" />
                       <span className="text-gray-700">
-                        Facial cleansing &amp; lifting massage
+                        Application of eye herbs to relieve stress and treat dark circles.
                       </span>
                     </div>
                     <div className="flex items-start">
                       <i className="ri-check-line text-rose-500 mr-3 mt-1 flex-shrink-0" />
                       <span className="text-gray-700">
-                        Exclusive massage cream
+                        Facial cleansing and face lifting massage with our exclusive massage cream 
                       </span>
                     </div>
                     <div className="flex items-start">
                       <i className="ri-check-line text-rose-500 mr-3 mt-1 flex-shrink-0" />
                       <span className="text-gray-700">
-                        Moisturizing face mask
+                         Moisturizing face mask.
                       </span>
                     </div>
                     <div className="flex items-start">
                       <i className="ri-check-line text-rose-500 mr-3 mt-1 flex-shrink-0" />
                       <span className="text-gray-700">
-                        Hand, neck &amp; shoulder massage
+                       Hand, neck, and shoulder massage.
                       </span>
                     </div>
                   </div>

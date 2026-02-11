@@ -134,9 +134,15 @@ const Footer = () => {
           </div>
         </div>
         <div className="border-t border-rose-200 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-gray-600 text-sm mb-4 md:mb-0">
-            © 2024 E'LAN BEAUTY. All rights reserved.
-          </p>
+     <a
+  href="https://calendly.com/marketixminddigital/new-meeting"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="text-gray-600 text-sm mb-4 md:mb-0 hover:text-rose-500 hover:underline transition"
+>
+ ©️ 2024 E'LAN BEAUTY. All rights reserved. Developed by Maketix Mind.
+</a>
+
           <div className="flex space-x-6 text-sm">
             <a
               href="#"
